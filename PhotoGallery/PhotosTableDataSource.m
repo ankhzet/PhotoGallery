@@ -14,8 +14,6 @@
 @interface PhotosTableDataSource ()
 @property (nonatomic, weak) IBOutlet PhotoGalleryCell *photoCell;
 
-
-
 @end
 
 @implementation PhotosTableDataSource
@@ -24,7 +22,7 @@
     if (!(self = [super init]))
         return nil;
     
-    _photos = [NSMutableArray array];
+    self.photos = [NSMutableArray array];
     
     return self;
 }
@@ -49,7 +47,7 @@
         // Handle the error
     }
     
-    [_photos setArray:fetchedObjects];
+    [self.photos setArray:fetchedObjects];
 
 }
 
@@ -62,7 +60,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_photos count];
+    return [self.photos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,13 +68,7 @@
     static NSString *CellIdentifier = @"PhotoGalleryCell";
     PhotoGalleryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (!cell) {
-        [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
-        cell = self.photoCell;
-        self.photoCell = nil;
-    }
-    
-    [cell configureCellForPhoto:[_photos objectAtIndex:[indexPath row]]];
+    [cell configureCellForPhoto:[self.photos objectAtIndex:[indexPath row]]];
    
     return cell;
 }

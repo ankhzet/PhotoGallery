@@ -35,7 +35,6 @@
 		0AACFF0B1874A837007DB704 /* PGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF0A1874A837007DB704 /* PGUtils.m */; };
 		0ABAE4691875C625002ECF1E /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABAE4681875C625002ECF1E /* PhotoDetailViewController.m */; };
 		0ABAE46D1875D821002ECF1E /* dark-air.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0ABAE46C1875D821002ECF1E /* dark-air.jpg */; };
-		0ACCCB501876F801001268AA /* PhotoGalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACCCB4F1876F801001268AA /* PhotoGalleryCell.xib */; };
 		0AD20F2B1874BB29008E61FF /* PhotoFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD20F2A1874BB29008E61FF /* PhotoFiltersViewController.m */; };
 		0AD20F2F1874C24A008E61FF /* PhotoGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD20F2E1874C24A008E61FF /* PhotoGalleryCell.m */; };
 		0AD20F321875932B008E61FF /* wallmen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AD20F311875932B008E61FF /* wallmen.jpg */; };
@@ -94,7 +93,6 @@
 		0ABAE4671875C625002ECF1E /* PhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
 		0ABAE4681875C625002ECF1E /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
 		0ABAE46C1875D821002ECF1E /* dark-air.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dark-air.jpg"; sourceTree = "<group>"; };
-		0ACCCB4F1876F801001268AA /* PhotoGalleryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoGalleryCell.xib; sourceTree = "<group>"; };
 		0AD20F291874BB29008E61FF /* PhotoFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoFiltersViewController.h; sourceTree = "<group>"; };
 		0AD20F2A1874BB29008E61FF /* PhotoFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoFiltersViewController.m; sourceTree = "<group>"; };
 		0AD20F2D1874C24A008E61FF /* PhotoGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGalleryCell.h; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 				0AACFF0118748B20007DB704 /* PhotosTableDataSource.m */,
 				0AD20F2D1874C24A008E61FF /* PhotoGalleryCell.h */,
 				0AD20F2E1874C24A008E61FF /* PhotoGalleryCell.m */,
-				0ACCCB4F1876F801001268AA /* PhotoGalleryCell.xib */,
 			);
 			name = "Master view";
 			sourceTree = "<group>";
@@ -383,7 +380,6 @@
 				0AD20F321875932B008E61FF /* wallmen.jpg in Resources */,
 				0AD20F3418759339008E61FF /* BiOmega.jpg in Resources */,
 				0ABAE46D1875D821002ECF1E /* dark-air.jpg in Resources */,
-				0ACCCB501876F801001268AA /* PhotoGalleryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

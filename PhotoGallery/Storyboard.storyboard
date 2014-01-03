@@ -56,6 +56,76 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7Tv-xZ-xTa">
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="redraw" restorationIdentifier="photoCell" selectionStyle="gray" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="PhotoGalleryCell" id="O1K-hT-4Xl" customClass="PhotoGalleryCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="88"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzd-qq-Qx8">
+                                                    <subviews>
+                                                        <imageView autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ayB-Rj-34z" userLabel="PhotoImage">
+                                                            <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="68" id="PWJ-07-Qcv"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5qm-vH-RiA" userLabel="loadingIndicator">
+                                                            <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </activityIndicatorView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="ayB-Rj-34z" firstAttribute="leading" secondItem="gzd-qq-Qx8" secondAttribute="leading" type="default" id="5ph-nx-fiI"/>
+                                                        <constraint firstItem="5qm-vH-RiA" firstAttribute="top" secondItem="gzd-qq-Qx8" secondAttribute="top" constant="15" id="OWk-l5-MWV"/>
+                                                        <constraint firstAttribute="centerX" secondItem="5qm-vH-RiA" secondAttribute="centerX" type="user" id="cNr-hA-q3w"/>
+                                                        <constraint firstItem="5qm-vH-RiA" firstAttribute="centerX" secondItem="ayB-Rj-34z" secondAttribute="centerX" type="default" id="dGs-mc-Dwo"/>
+                                                        <constraint firstItem="ayB-Rj-34z" firstAttribute="top" secondItem="gzd-qq-Qx8" secondAttribute="top" type="default" id="qc7-K3-nzx"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1N-c1-0d3" userLabel="Title" propertyAccessControl="none">
+                                                    <accessibility key="accessibilityConfiguration" hint="Title" label=""/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="180" id="VXo-Xs-HwS"/>
+                                                        <constraint firstAttribute="height" constant="23" id="XrH-lm-Hbg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="21g-eL-vrf" userLabel="Description">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="23" id="IoL-fb-dro"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="gzd-qq-Qx8" secondAttribute="bottom" constant="11" id="1nM-Ju-OkZ"/>
+                                            <constraint firstItem="E1N-c1-0d3" firstAttribute="leading" secondItem="21g-eL-vrf" secondAttribute="leading" type="default" id="5dm-HV-0zh"/>
+                                            <constraint firstItem="21g-eL-vrf" firstAttribute="top" secondItem="E1N-c1-0d3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="CAe-o1-Mnh"/>
+                                            <constraint firstAttribute="trailing" secondItem="gzd-qq-Qx8" secondAttribute="trailing" constant="225" id="E5k-TC-BkN"/>
+                                            <constraint firstItem="21g-eL-vrf" firstAttribute="trailing" secondItem="E1N-c1-0d3" secondAttribute="trailing" type="default" id="NaC-Nw-bUa"/>
+                                            <constraint firstItem="E1N-c1-0d3" firstAttribute="leading" secondItem="O1K-hT-4Xl" secondAttribute="leading" constant="104" id="bsR-kW-uKJ"/>
+                                            <constraint firstItem="gzd-qq-Qx8" firstAttribute="top" secondItem="O1K-hT-4Xl" secondAttribute="top" constant="10" id="fsl-w5-gGa"/>
+                                            <constraint firstItem="E1N-c1-0d3" firstAttribute="top" secondItem="gzd-qq-Qx8" secondAttribute="top" type="default" id="jAJ-6s-Mgi"/>
+                                            <constraint firstItem="gzd-qq-Qx8" firstAttribute="leading" secondItem="O1K-hT-4Xl" secondAttribute="leading" constant="10" id="wJy-i6-GRS"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="21g-eL-vrf" id="IsS-dQ-Gaj"/>
+                                            <outlet property="imageView" destination="ayB-Rj-34z" id="szG-Xu-0yg"/>
+                                            <outlet property="loadingIndicator" destination="5qm-vH-RiA" id="Umq-ki-qGn"/>
+                                            <outlet property="titleLabel" destination="E1N-c1-0d3" id="Taw-Or-SPN"/>
+                                            <segue destination="0jZ-Dz-GcE" kind="push" identifier="showPhotoDetails" trigger="accessoryAction" id="Ow8-wb-ygV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -134,7 +204,7 @@
             <objects>
                 <viewController id="0jZ-Dz-GcE" customClass="PhotoDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v9R-oG-m99">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siB-z0-Pj5">
@@ -361,6 +431,15 @@
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
+        <class className="PhotoGalleryCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoGalleryCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadingIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="PhotoGalleryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoGalleryViewController.h"/>
             <relationships>
@@ -388,9 +467,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

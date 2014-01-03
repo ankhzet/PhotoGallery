@@ -7,9 +7,11 @@
 //
 
 #import "PhotoPickerViewController.h"
+#import "PhotoFiltersViewController.h"
 
 @interface PhotoPickerViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIImagePickerController *picker;
+@property (nonatomic, strong) UIImage *pickedImage;
 @end
 
 @implementation PhotoPickerViewController
@@ -17,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.pickedImage = nil;
     
 //    self.picker = [[UIImagePickerController alloc] initWithRootViewController:self];
 //    self.picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
@@ -32,8 +35,16 @@
 
 // ImagePicker delegate.
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+    self.pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    [[self navigationController] performSegueWithIdentifier:@"showFilters" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showFilters"]) {
+        PhotoFiltersViewController *dvc = [segue destinationViewController];
+        [dvc setupBeforeShow:self.pickedImage];
+    }
 }
 
 @end

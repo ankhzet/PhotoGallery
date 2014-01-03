@@ -12,4 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 - (IBAction)actionSave:(id)sender;
+
+-(void) setupBeforeShow:(UIImage *)image;
 @end

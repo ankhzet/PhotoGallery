@@ -22,16 +22,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSString *walls[] = {@"wallmen.jpg", @"BiOmega.jpg", @"dark-air.jpg"};
-    int rand = arc4random() % 3;
-    
-    [self.imageView setImage:[UIImage imageNamed:walls[rand]]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)setupBeforeShow:(UIImage *)image {
+    [self.imageView setImage:image];
 }
 
 // User pressed "Done" toolbar button. Save image and metadata to database and pop controllers stack to master view controller.

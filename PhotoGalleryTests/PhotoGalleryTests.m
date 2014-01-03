@@ -10,8 +10,16 @@
 
 #import "Photo.h"
 #import "PGUtils.h"
+#import "PhotoGalleryCell.h"
+
+@interface PhotoGalleryTests ()
+@property (nonatomic, strong) PhotoGalleryCell * photoCell;
+
+@end
 
 @implementation PhotoGalleryTests
+
+
 
 NSManagedObjectContext *context;
 
@@ -47,16 +55,27 @@ NSManagedObjectContext *context;
         
         STAssertNotNil([entity getImage], @"Entity should return not nil image");
         
-        [entity getImageWithBlock:^(UIImage *image) {
-            STAssertNotNil([entity getImage], @"Image, retrived with block should not be nil");
-        }];
-        
         NSLog(@"Entity:\n%@", entity);
     }
     @finally {
         [context deleteObject:entity];
     }
     
+}
+
+- (void) testPhotoGalleryCell {
+    NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"PhotoGalleryCell" owner:self options:nil];
+    
+    PhotoGalleryCell *cell = nibs[0];
+    
+    STAssertNotNil(cell, @"Gallery cell from PhotoGalleryCell.xib should not be nil");
+    
+    STAssertTrue([cell isMemberOfClass:[PhotoGalleryCell class]], @"Gallery cell from PhotoGalleryCell.xib should be instance of PhotoGalleryCell");
+    
+    STAssertNotNil(cell.titleLabel, @"Cell title label sholdn't be nil");
+    STAssertNotNil(cell.descriptionLabel, @"Cell description label sholdn't be nil");
+    STAssertNotNil(cell.imageView, @"Cell image view sholdn't be nil");
+    STAssertNotNil(cell.loadingIndicator, @"Cell loading indicator sholdn't be nil");
 }
 
 @end

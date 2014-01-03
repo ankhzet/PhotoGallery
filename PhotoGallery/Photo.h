@@ -30,6 +30,5 @@ typedef void (^PhotoImageLoaderCompletionBlock)(UIImage *image);
 
 // Loads image data from file.
 -(UIImage *) getImage;
--(void) getImageWithBlock: (PhotoImageLoaderCompletionBlock) block;
 
 @end

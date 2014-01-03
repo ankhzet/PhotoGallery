@@ -77,14 +77,4 @@ CGFloat compressionForJPEG = 0.85;
     return [UIImage imageWithContentsOfFile:filePath];
 }
 
--(void) getImageWithBlock: (PhotoImageLoaderCompletionBlock) block {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        __block UIImage *image = [self getImage];
-        usleep(arc4random() % 5000000);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            block(image);
-        });
-    });
-}
-
 @end

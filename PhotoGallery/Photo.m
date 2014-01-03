@@ -17,7 +17,8 @@
 @dynamic metaGPSLocation;
 
 NSString *fileNamePattern = @"photo-%@.jpg";
-NSString *fileDateTimePattern = @"dd-mm-yy_hh-ss";
+NSString *fileDateTimePattern = @"dd-mm-yy_HH-ss";
+NSString *readableDateTimePattern = @"dd/mm/yyyy HH:ss";
 CGFloat compressionForJPEG = 0.85;
 
 +(Photo *) newPhotoFromImage: (UIImage *) image {
@@ -75,6 +76,13 @@ CGFloat compressionForJPEG = 0.85;
 -(UIImage *) getImage {
     NSString *filePath = [[Photo makeAbsolutePathForPhotoFile:[self fileName]] path];
     return [UIImage imageWithContentsOfFile:filePath];
+}
+
+-(NSString *) readableTimestamp {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:readableDateTimePattern];
+    
+    return [df stringFromDate:[self timestamp]];
 }
 
 @end

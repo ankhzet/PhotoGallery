@@ -16,7 +16,7 @@
 @implementation PhotoGalleryCell
 
 -(void)configureCellForPhoto:(Photo *)photo {
-    [self.titleLabel setText:[photo fileName]];
+    [self.titleLabel setText:[photo readableTimestamp]];
     [self.descriptionLabel setText:[photo metaDescription]];
     
     // prepare for loading image with loading indicator
@@ -42,7 +42,7 @@
     [self setImageIsLoading:YES]; // show loading indicator
     [self.queue addOperationWithBlock:^{
         __block UIImage *image = [photo getImage]; // actual loading
-        usleep(arc4random() % 1000000); // simulate network lag
+//        usleep(arc4random() % 1000000); // simulate network lag
         CGSize size = CGSizeMake(86, 68);
         image = [self resizeImage:image imageSize:size];// nice and handy thumbnail
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

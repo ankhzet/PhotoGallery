@@ -31,4 +31,7 @@ typedef void (^PhotoImageLoaderCompletionBlock)(UIImage *image);
 // Loads image data from file.
 -(UIImage *) getImage;
 
+// readable timestaml to display in table view
+-(NSString *) readableTimestamp;
+
 @end

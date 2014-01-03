@@ -7,6 +7,7 @@
 //
 
 #import "PhotoGalleryCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PhotoGalleryCell ()
 @property (strong) NSOperationQueue *queue;
@@ -20,6 +21,12 @@
     
     // prepare for loading image with loading indicator
     [self queueImageLoadForPhoto:photo];
+    [self setNeedsLayout];
+    CALayer *layer = [self.imageView layer];
+    layer.cornerRadius = 4.0;
+    layer.masksToBounds = YES;
+    layer.borderColor = [UIColor blackColor].CGColor;
+    layer.borderWidth = 1.0;
 }
 
 -(void) queueImageLoadForPhoto: (Photo *) photo {
@@ -64,7 +71,8 @@
 {
     UIGraphicsBeginImageContext(size);
     [image drawInRect:CGRectMake(0,0,size.width,size.height)];
-    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    CGContextC
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
 }

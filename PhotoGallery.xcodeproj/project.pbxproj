@@ -226,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				0AACFEEE18747292007DB704 /* Storyboard.storyboard */,
-				0ACCCB4F1876F801001268AA /* PhotoGalleryCell.xib */,
 				0AACFEFC18748AC8007DB704 /* Master view */,
 				0AACFEF818748922007DB704 /* Preferences view */,
 				0AACFEF4187476FE007DB704 /* Photo picker */,
@@ -263,6 +262,7 @@
 				0AACFF0118748B20007DB704 /* PhotosTableDataSource.m */,
 				0AD20F2D1874C24A008E61FF /* PhotoGalleryCell.h */,
 				0AD20F2E1874C24A008E61FF /* PhotoGalleryCell.m */,
+				0ACCCB4F1876F801001268AA /* PhotoGalleryCell.xib */,
 			);
 			name = "Master view";
 			sourceTree = "<group>";

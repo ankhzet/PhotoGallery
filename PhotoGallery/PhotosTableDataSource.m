@@ -11,6 +11,13 @@
 #import "Photo.h"
 #import "PGUtils.h"
 
+@interface PhotosTableDataSource ()
+@property (nonatomic, weak) IBOutlet PhotoGalleryCell *photoCell;
+
+
+
+@end
+
 @implementation PhotosTableDataSource
 
 -(id) init {
@@ -61,7 +68,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"PhotoGalleryCell";
-    PhotoGalleryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    PhotoGalleryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
+        cell = self.photoCell;
+        self.photoCell = nil;
+    }
     
     [cell configureCellForPhoto:[_photos objectAtIndex:[indexPath row]]];
    

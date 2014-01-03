@@ -14,12 +14,6 @@
 
 @implementation PhotoGalleryCell
 
--(void)prepareForReuse {
-    [self.titleLabel setText:@"reuse"];
-    [self.descriptionLabel setText:@"reuse"];
-    [self setImageIsLoading:YES];
-}
-
 -(void)configureCellForPhoto:(Photo *)photo {
     [self.titleLabel setText:[photo fileName]];
     [self.descriptionLabel setText:[photo metaDescription]];

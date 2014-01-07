@@ -66,12 +66,14 @@
 
 // apply all selected filters to source image (it's minified copy) and update filters collection table
 -(void) applyFilters {
+    // show activity indicator
     [self.loadingIndicator setHidden:NO];
     [self.loadingIndicator startAnimating];
     
     [self.undoButton setEnabled:[self.filtersManager hasFiltersInGroup]];
     [self.applyButton setEnabled:NO];
     
+    // put processing code on another operation queue
     [self.previewGenerationQueue addOperationWithBlock:^{
         // process minified image with filters
         CIImage *processedImage = [self.filtersManager processImageWithFiltersGroup:self.minifiedImage];
@@ -82,6 +84,7 @@
         CGSize previewSampleImageSize = CGSizeMake(sourceSize.width / 4, sourceSize.height / 4);
         CIImage *sampleImage = [PGImageFilters makeCIImageFromUIImage:preview andFit:previewSampleImageSize];
 
+        // all UI should be done on main queue
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             // show preview
             [self.imageView setImage:preview];

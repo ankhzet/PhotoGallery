@@ -19,8 +19,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.pickedImage = nil;
     
+    NSString *images[] = {@"strange.png", @"and-cat.png", @"BiOmega.jpg", @"dark-air.jpg", @"wallmen.jpg"};
+    
+    self.pickedImage = [UIImage imageNamed:images[arc4random() % 5]];
+    
+    [self.imageView setImage:self.pickedImage];
 //    self.picker = [[UIImagePickerController alloc] initWithRootViewController:self];
 //    self.picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
 //    self.picker.delegate = self;
@@ -40,6 +44,7 @@
     [[self navigationController] performSegueWithIdentifier:@"showFilters" sender:self];
 }
 
+// setup Filters-view before displaying it
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showFilters"]) {
         PhotoFiltersViewController *dvc = [segue destinationViewController];

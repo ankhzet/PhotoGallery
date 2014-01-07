@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "Photo.h"
+#import "DelayedLoadingCell.h"
 
-@interface PhotoGalleryCell : UITableViewCell
+@interface PhotoGalleryCell : DelayedLoadingCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 

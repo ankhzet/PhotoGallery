@@ -33,7 +33,7 @@
 		0AACFED41874468B007DB704 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFEB01874468B007DB704 /* Foundation.framework */; };
 		0AACFED51874468B007DB704 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFEB41874468B007DB704 /* CoreData.framework */; };
 		0AACFEDD1874468B007DB704 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AACFEDB1874468B007DB704 /* InfoPlist.strings */; };
-		0AACFEEC18745806007DB704 /* PGiCloudStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEEB18745806007DB704 /* PGiCloudStorage.m */; };
+		0AACFEEC18745806007DB704 /* ICloudEnabledStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEEB18745806007DB704 /* ICloudEnabledStorage.m */; };
 		0AACFEEF18747292007DB704 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AACFEEE18747292007DB704 /* Storyboard.storyboard */; };
 		0AACFEF2187476D2007DB704 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEF1187476D2007DB704 /* PhotoPickerViewController.m */; };
 		0AACFEFB1874894D007DB704 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEFA1874894D007DB704 /* PreferencesViewController.m */; };
@@ -52,6 +52,11 @@
 		0AD20F3418759339008E61FF /* BiOmega.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AD20F3318759339008E61FF /* BiOmega.jpg */; };
 		0ADBEA9A187B74F700A59F79 /* DelayedLoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEA99187B74F700A59F79 /* DelayedLoadingCell.m */; };
 		0ADBEA9E187B79E100A59F79 /* DelayedLoadingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEA9D187B79E100A59F79 /* DelayedLoadingCollectionCell.m */; };
+		0ADBEAA8187D83E900A59F79 /* iCloudDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEAA7187D83E900A59F79 /* iCloudDownload.m */; };
+		0ADBEAAC187D8B1D00A59F79 /* iCloudDownloadTestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEAAB187D8B1D00A59F79 /* iCloudDownloadTestProxy.m */; };
+		0ADBEAAF187D90EA00A59F79 /* DataProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEAAE187D90EA00A59F79 /* DataProxy.m */; };
+		0ADBEAB2187DADA900A59F79 /* PGDataProxyContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEAB1187DADA900A59F79 /* PGDataProxyContainer.m */; };
+		0ADBEABE187DC47600A59F79 /* iCloudEnabledPhotoStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEABD187DC47600A59F79 /* iCloudEnabledPhotoStorage.m */; };
 		7B18190F017C4468922DA6B9 /* libPods-PhotoGalleryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B50B002091F54F48AC44C5C1 /* libPods-PhotoGalleryTests.a */; };
 /* End PBXBuildFile section */
 
@@ -97,8 +102,8 @@
 		0AACFED11874468B007DB704 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0AACFEDA1874468B007DB704 /* PhotoGalleryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoGalleryTests-Info.plist"; sourceTree = "<group>"; };
 		0AACFEDC1874468B007DB704 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0AACFEEA18745806007DB704 /* PGiCloudStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGiCloudStorage.h; sourceTree = "<group>"; };
-		0AACFEEB18745806007DB704 /* PGiCloudStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGiCloudStorage.m; sourceTree = "<group>"; };
+		0AACFEEA18745806007DB704 /* ICloudEnabledStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICloudEnabledStorage.h; sourceTree = "<group>"; };
+		0AACFEEB18745806007DB704 /* ICloudEnabledStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICloudEnabledStorage.m; sourceTree = "<group>"; };
 		0AACFEED18747138007DB704 /* PhotoGallery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PhotoGallery.entitlements; sourceTree = "<group>"; };
 		0AACFEEE18747292007DB704 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0AACFEF0187476D2007DB704 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
@@ -129,6 +134,16 @@
 		0ADBEA99187B74F700A59F79 /* DelayedLoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayedLoadingCell.m; sourceTree = "<group>"; };
 		0ADBEA9C187B79E100A59F79 /* DelayedLoadingCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayedLoadingCollectionCell.h; sourceTree = "<group>"; };
 		0ADBEA9D187B79E100A59F79 /* DelayedLoadingCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayedLoadingCollectionCell.m; sourceTree = "<group>"; };
+		0ADBEAA6187D83E900A59F79 /* iCloudDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudDownload.h; sourceTree = "<group>"; };
+		0ADBEAA7187D83E900A59F79 /* iCloudDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudDownload.m; sourceTree = "<group>"; };
+		0ADBEAAA187D8B1D00A59F79 /* iCloudDownloadTestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudDownloadTestProxy.h; sourceTree = "<group>"; };
+		0ADBEAAB187D8B1D00A59F79 /* iCloudDownloadTestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudDownloadTestProxy.m; sourceTree = "<group>"; };
+		0ADBEAAD187D90EA00A59F79 /* DataProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProxy.h; sourceTree = "<group>"; };
+		0ADBEAAE187D90EA00A59F79 /* DataProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProxy.m; sourceTree = "<group>"; };
+		0ADBEAB0187DADA900A59F79 /* PGDataProxyContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDataProxyContainer.h; sourceTree = "<group>"; };
+		0ADBEAB1187DADA900A59F79 /* PGDataProxyContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDataProxyContainer.m; sourceTree = "<group>"; };
+		0ADBEABC187DC47600A59F79 /* iCloudEnabledPhotoStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudEnabledPhotoStorage.h; sourceTree = "<group>"; };
+		0ADBEABD187DC47600A59F79 /* iCloudEnabledPhotoStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudEnabledPhotoStorage.m; sourceTree = "<group>"; };
 		B50B002091F54F48AC44C5C1 /* libPods-PhotoGalleryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoGalleryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31F1462B6C5401782521891 /* Pods-PhotoGalleryTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGalleryTests.xcconfig"; path = "Pods/Pods-PhotoGalleryTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,11 +229,11 @@
 		0AACFEB61874468B007DB704 /* PhotoGallery */ = {
 			isa = PBXGroup;
 			children = (
-				0AACFF081874A828007DB704 /* Utils */,
-				0AACFEF3187476F0007DB704 /* Views */,
 				0AACFEBF1874468B007DB704 /* AppDelegate.h */,
 				0AACFEC01874468B007DB704 /* AppDelegate.m */,
-				0AACFEE9187457CA007DB704 /* iCloud */,
+				0AACFF081874A828007DB704 /* Utils */,
+				0AACFEF3187476F0007DB704 /* Views */,
+				0AACFEE9187457CA007DB704 /* Data storage */,
 				0AACFEC81874468B007DB704 /* PhotoGallery.xcdatamodeld */,
 				0AACFF031874A220007DB704 /* Photo.h */,
 				0AACFF041874A220007DB704 /* Photo.m */,
@@ -264,14 +279,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0AACFEE9187457CA007DB704 /* iCloud */ = {
+		0AACFEE9187457CA007DB704 /* Data storage */ = {
 			isa = PBXGroup;
 			children = (
 				0AACFEED18747138007DB704 /* PhotoGallery.entitlements */,
-				0AACFEEA18745806007DB704 /* PGiCloudStorage.h */,
-				0AACFEEB18745806007DB704 /* PGiCloudStorage.m */,
+				0ADBEABA187DB5ED00A59F79 /* Data proxy wrappers & imp */,
+				0ADBEAAA187D8B1D00A59F79 /* iCloudDownloadTestProxy.h */,
+				0ADBEAAB187D8B1D00A59F79 /* iCloudDownloadTestProxy.m */,
 			);
-			name = iCloud;
+			name = "Data storage";
 			sourceTree = "<group>";
 		};
 		0AACFEF3187476F0007DB704 /* Views */ = {
@@ -360,6 +376,23 @@
 				0AD20F311875932B008E61FF /* wallmen.jpg */,
 			);
 			name = photos;
+			sourceTree = "<group>";
+		};
+		0ADBEABA187DB5ED00A59F79 /* Data proxy wrappers & imp */ = {
+			isa = PBXGroup;
+			children = (
+				0ADBEAB0187DADA900A59F79 /* PGDataProxyContainer.h */,
+				0ADBEAB1187DADA900A59F79 /* PGDataProxyContainer.m */,
+				0AACFEEA18745806007DB704 /* ICloudEnabledStorage.h */,
+				0AACFEEB18745806007DB704 /* ICloudEnabledStorage.m */,
+				0ADBEABC187DC47600A59F79 /* iCloudEnabledPhotoStorage.h */,
+				0ADBEABD187DC47600A59F79 /* iCloudEnabledPhotoStorage.m */,
+				0ADBEAAD187D90EA00A59F79 /* DataProxy.h */,
+				0ADBEAAE187D90EA00A59F79 /* DataProxy.m */,
+				0ADBEAA6187D83E900A59F79 /* iCloudDownload.h */,
+				0ADBEAA7187D83E900A59F79 /* iCloudDownload.m */,
+			);
+			name = "Data proxy wrappers & imp";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,7 +546,7 @@
 				0AACFEBD1874468B007DB704 /* main.m in Sources */,
 				0AACFEC11874468B007DB704 /* AppDelegate.m in Sources */,
 				0AACFECA1874468B007DB704 /* PhotoGallery.xcdatamodeld in Sources */,
-				0AACFEEC18745806007DB704 /* PGiCloudStorage.m in Sources */,
+				0AACFEEC18745806007DB704 /* ICloudEnabledStorage.m in Sources */,
 				0AACFEF2187476D2007DB704 /* PhotoPickerViewController.m in Sources */,
 				0AACFEFB1874894D007DB704 /* PreferencesViewController.m in Sources */,
 				0AACFEFF18748AEC007DB704 /* PhotoGalleryViewController.m in Sources */,
@@ -528,6 +561,11 @@
 				0A2CEE1E187B57B500187CEC /* PhotoFilterCell.m in Sources */,
 				0ADBEA9A187B74F700A59F79 /* DelayedLoadingCell.m in Sources */,
 				0ADBEA9E187B79E100A59F79 /* DelayedLoadingCollectionCell.m in Sources */,
+				0ADBEAA8187D83E900A59F79 /* iCloudDownload.m in Sources */,
+				0ADBEAAC187D8B1D00A59F79 /* iCloudDownloadTestProxy.m in Sources */,
+				0ADBEAAF187D90EA00A59F79 /* DataProxy.m in Sources */,
+				0ADBEAB2187DADA900A59F79 /* PGDataProxyContainer.m in Sources */,
+				0ADBEABE187DC47600A59F79 /* iCloudEnabledPhotoStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

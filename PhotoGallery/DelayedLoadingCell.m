@@ -12,6 +12,7 @@
 
 @interface DelayedLoadingCell ()
 @property (strong) NSOperationQueue *queue;
+@property (atomic) NSUInteger queryID;
 @end
 
 @implementation DelayedLoadingCell
@@ -34,9 +35,16 @@
             [self.queue cancelAllOperations];
     
     [self setImageIsLoading:YES]; // show loading indicator
+    
+    self.queryID++;
+    NSUInteger queriedID = self.queryID;
+    
     [self.queue addOperationWithBlock:^{
         __block UIImage *image = block(userData);
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if (queriedID != self.queryID)
+                return; // woops... to late...
+            
             [self.imageView setImage: image]; // setup image
             [self setImageIsLoading:NO]; // hide loading indicator
         }];

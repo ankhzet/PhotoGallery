@@ -7,7 +7,7 @@
 //
 
 #import "PhotoDetailViewController.h"
-#import "PGUtils.h"
+#import "PGDataProxyContainer.h"
 
 @interface PhotoDetailViewController ()
 
@@ -45,7 +45,7 @@
 // After user press "Done" button we must save changes to db and show master view.
 - (IBAction)actionSave:(id)sender {
     [self.photo setMetaDescription:[self.descriptionText text]];
-    if (![PGUtils saveContext]) {
+    if (![PGDataProxyContainer saveContext]) {
         return;
     }
     

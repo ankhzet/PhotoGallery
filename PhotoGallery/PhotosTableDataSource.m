@@ -9,7 +9,7 @@
 #import "PhotosTableDataSource.h"
 #import "PhotoGalleryCell.h"
 #import "Photo.h"
-#import "PGUtils.h"
+#import "PGDataProxyContainer.h"
 
 @interface PhotosTableDataSource ()
 @property (nonatomic, weak) IBOutlet PhotoGalleryCell *photoCell;
@@ -29,7 +29,7 @@
 
 // fetching data from managed context
 -(void)aquireData {
-    NSManagedObjectContext *context = [[PGUtils getInstance]managedObjectContext];
+    NSManagedObjectContext *context = [[PGDataProxyContainer getInstance] managedObjectContext];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo"

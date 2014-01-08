@@ -8,23 +8,18 @@
 
 #import "AppDelegate.h"
 
-#import "PGiCloudStorage.h"
+#import "PGDataProxyContainer.h"
+#import "iCloudEnabledPhotoStorage.h"
 
 #import "PGUtils.h"
 
 @implementation AppDelegate
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    PGiCloudStorage *storage = [[PGiCloudStorage alloc] init];
-    
-    if (![storage startSynk])
-        NSLog(@"iCloud conection failed");
-        
+
+    [PGDataProxyContainer initInstance:[[iCloudEnabledPhotoStorage alloc] init]];
+
     return YES;
 }
 
@@ -53,36 +48,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
-}
-
-- (void)saveContext
-{
-    [[PGUtils getInstance] saveContext];
-}
-
-#pragma mark - Core Data stack
-// all methods refers to PGUtils singletone methods.
-
-// Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
-{
-    return [[PGUtils getInstance] managedObjectContext];
-}
-
-// Returns the managed object model for the application.
-// If the model doesn't already exist, it is created from the application's model.
-- (NSManagedObjectModel *)managedObjectModel
-{
-    return [[PGUtils getInstance] managedObjectModel];
-}
-
-// Returns the persistent store coordinator for the application.
-// If the coordinator doesn't already exist, it is created and the application's store added to it.
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
-    return [[PGUtils getInstance]persistentStoreCoordinator];
+    [PGDataProxyContainer saveContext];
 }
 
 @end

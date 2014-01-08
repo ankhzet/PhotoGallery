@@ -8,7 +8,7 @@
 
 #import "PhotoFiltersViewController.h"
 #import "Photo.h"
-#import "PGUtils.h"
+#import "PGDataProxyContainer.h"
 #import "PhotoGalleryViewController.h"
 #import "PGImageFilters.h"
 
@@ -128,7 +128,7 @@
     CGImageRelease(tempRef);
     
     // try to save changes
-    if (![PGUtils saveContext])
+    if (![PGDataProxyContainer saveContext])
         return;
     
     // dirty game =(

@@ -7,6 +7,7 @@
 //
 
 #import "Photo.h"
+#import "PGDataProxyContainer.h"
 #import "PGUtils.h"
 
 @implementation Photo
@@ -19,7 +20,7 @@
 NSString *fileNamePattern = @"photo-%@.jpg";
 NSString *fileDateTimePattern = @"dd-MM-yy_HH-mm-ss";
 NSString *readableDateTimePattern = @"dd/MM/yyyy HH:mm";
-CGFloat compressionForJPEG = 0.85;
+CGFloat compressionForJPEG = 0.75;
 
 +(Photo *) newPhotoFromImage: (UIImage *) image {
     NSDate *creationTime = [NSDate date];
@@ -37,7 +38,7 @@ CGFloat compressionForJPEG = 0.85;
         return nil;
     
     // instantiating database entity
-    Photo *instance = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:[[PGUtils getInstance] managedObjectContext]];
+    Photo *instance = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:[[PGDataProxyContainer getInstance] managedObjectContext]];
     
     // initialize entity
     [instance setTimestamp:creationTime];
@@ -52,22 +53,45 @@ CGFloat compressionForJPEG = 0.85;
     return instance;
 }
 
--(BOOL) deletePhoto {
+
+// check, if this entity was deleted, then delete referenced image file (on iCloud also), if needed.
+// if file was linked with iCloud copy, it will be removed from iCloud storage to (i guess...).
+-(void)didSave {
+    [super didSave];
+    
+    if ([self isDeleted]) {
+        [self deleteImage]; // try to delete image, if it still exists
+    }
+}
+
+-(BOOL) deleteImage {
     NSURL *fileURL = [Photo makeAbsolutePathForPhotoFile:[self fileName]];
     
-    // first try to delete image file
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[fileURL path]])
+        return YES;
+    
     NSError *error = nil;
     if (![[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error]) {
         NSLog(@"Error while deleting \"%@\": %@", [self fileName], [error localizedDescription]);
         return NO;
     }
     
+    return YES;
+}
+
+-(BOOL) deletePhoto {
+    // first try to delete image file
+    // later, [moc saveContext] will trigger file deletion again, but file will be already deleted (no exceptions will be thrown).
+    if (![self deleteImage]) {
+        return NO;
+    }
+    
     // all is OK, delete from database
-    NSManagedObjectContext *context = [[PGUtils getInstance] managedObjectContext];
+    NSManagedObjectContext *context = [[PGDataProxyContainer getInstance] managedObjectContext];
     [context deleteObject:self];
     
     // finally, flush database to storage
-    return [PGUtils saveContext];
+    return [PGDataProxyContainer saveContext];
 }
 
 +(NSURL *) makeAbsolutePathForPhotoFile:(NSString *)fileName {

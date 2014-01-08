@@ -1,2 +1,4 @@
 *.jpg
 *.png
+Pods/*
+Podfile.lock

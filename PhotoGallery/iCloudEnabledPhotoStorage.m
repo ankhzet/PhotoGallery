@@ -41,7 +41,6 @@ NSString *storedFilePattern = @"*.jpg";
     [query setSearchScopes:[NSArray arrayWithObject:NSMetadataQueryUbiquitousDocumentsScope]];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat: @"%K like %@", NSMetadataItemFSNameKey, storedFilePattern];
-    
     NSLog(@"Predic: %@", predicate);
     [query setPredicate:predicate];
     
@@ -80,6 +79,8 @@ NSString *storedFilePattern = @"*.jpg";
     }
     
     NSLog(@"Total fetched: %@", data);
+    
+    // TODO: implement photo files sync code
     
     // first: fetch photo entities from coredata
     

@@ -31,7 +31,7 @@
     }
     
     // prepare minified image for filter preview
-    CGSize viewSize = CGSizeMake(280, 303);
+    CGSize viewSize = CGSizeMake(280, 364);
     CGSize imageSize = [self.pickedImage size];
     CGSize minifiedSize = CGSizeMake(viewSize.width, viewSize.height);
     if ((minifiedSize.width > imageSize.width) || (minifiedSize.height > imageSize.height)) {

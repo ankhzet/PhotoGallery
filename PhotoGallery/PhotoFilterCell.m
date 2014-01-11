@@ -12,9 +12,7 @@
 
 -(void)configureCellForFilter: (int)filterIndex inFilterManager: (PGImageFilters *)manager andSourceImage: (CIImage *) image
 {
-    [self setBackgroundColor:[UIColor clearColor]];
-    [self.imageView setBackgroundColor:[UIColor clearColor]];
-    [self queueImageLoad:image WithBlock:^UIImage *(id image) {
+    [self queueImageLoad:image withBlock:^UIImage *(id image) {
         return [UIImage imageWithCIImage:
                 [manager processImage:image withFilter:filterIndex]
                 ];

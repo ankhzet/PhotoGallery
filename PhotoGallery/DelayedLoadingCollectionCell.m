@@ -16,18 +16,18 @@
 
 @implementation DelayedLoadingCollectionCell
 
--(void) queueImageLoad:(id) userData WithBlock: (PreparePreviewBlock) block {
+// setup image's border color before first display of cell
+-(void) prepareForReuse {
+    [super prepareForReuse];
+    
+    [self highliteImage:[UIColor lightGrayColor]];
+}
+
+-(void) queueImageLoad:(id) userData withBlock: (PreparePreviewBlock) block {
     // create new queue if this is first time
     if (!self.queue) {
         self.queue = [[NSOperationQueue alloc] init];
         self.queue.maxConcurrentOperationCount = 1;
-        
-        // and configure image layer
-        CALayer *layer = [self.imageView layer];
-        layer.cornerRadius = 4.0;
-        layer.masksToBounds = YES;
-        layer.borderColor = [UIColor lightGrayColor].CGColor;
-        layer.borderWidth = 1.0;
     } else {
         // else cancell all operations on queue
         [self.queue cancelAllOperations];
@@ -46,6 +46,23 @@
             [self setImageIsLoading:NO]; // hide loading indicator
         }];
     }];
+}
+
+// handle cell selection
+-(void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    
+    [self highliteImage: (selected ? [UIColor blueColor] : [UIColor lightGrayColor])];
+}
+
+// method changes image's border color
+-(void) highliteImage: (UIColor *) highlightColor {
+    CALayer *layer = [self.imageView layer];
+    layer.cornerRadius = 4.0;
+    layer.masksToBounds = YES;
+    layer.borderColor = [highlightColor CGColor]; // given color
+    layer.borderWidth = 1.0;
+    [self.imageView setNeedsDisplay]; // make shure that changes rendered on display immediately
 }
 
 // Turn ON/OFF loading indicator.

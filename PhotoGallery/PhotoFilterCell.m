@@ -12,6 +12,7 @@
 
 -(void)configureCellForFilter: (int)filterIndex inFilterManager: (PGImageFilters *)manager andSourceImage: (CIImage *) image
 {
+    // create filter preview on separate thred
     [self queueImageLoad:image withBlock:^UIImage *(id image) {
         return [UIImage imageWithCIImage:
                 [manager processImage:image withFilter:filterIndex]

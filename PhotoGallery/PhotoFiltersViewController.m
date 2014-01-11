@@ -118,6 +118,8 @@
     // apply filters
     CIImage *source = [CIImage imageWithCGImage:[self.pickedImage CGImage]];
     CIImage *processed = [self.filtersManager processImageWithFiltersGroup:source];
+    
+    // this step required to save image in jpeg format
     CGImageRef tempRef = [[CIContext contextWithOptions:nil]
                           createCGImage:processed
                           fromRect:processed.extent];
@@ -132,9 +134,12 @@
         return;
     
     // dirty game =(
+    // aquire master (root) controller
     PhotoGalleryViewController *masterController = [[self.navigationController viewControllers] objectAtIndex:0];
-    
+
+    // photos collection updated, update master controller
     [masterController reloadTable];
+    // navigate back to master controller
     [self.navigationController popToViewController:masterController animated:YES];
 }
 

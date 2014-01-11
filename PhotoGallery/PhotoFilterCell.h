@@ -2,6 +2,8 @@
 //  PhotoEffectCell.h
 //  PhotoGallery
 //
+//  Collection cell that displays image filter preview.
+//
 //  Created by Ankh on 06.01.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //

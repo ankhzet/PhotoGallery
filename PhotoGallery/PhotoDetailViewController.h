@@ -19,10 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionText;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)actionSave:(id)sender;
 - (IBAction)actionDelete:(id)sender;
-- (IBAction)actionResignFirstResponder:(id)sender;
 
 @property (nonatomic, weak) id<PhotoDetailsControllerDelegate> delegate;
 @property (nonatomic, weak) Photo *photo;

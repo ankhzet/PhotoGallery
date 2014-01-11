@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-PhotoGalleryTests-TPKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PhotoGalleryTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TPKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>084F229DC32F40ECA36B8862</key>
+		<key>399ABF957ED84FE1BC91D01F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9415AB6BD6534401B633BBFB</key>
+		<key>9CA924C7CB8C49BC9F86D7C9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5C61F3CA1D34D9BBDBEC4C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A7CB380725F74013A85A7A9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7E5583767284DC8B38FF291</key>
 		<dict>
 			<key>primary</key>
 			<true/>

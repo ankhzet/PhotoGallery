@@ -60,22 +60,4 @@
     [self.delegate didDoneWithDetails:self andReload:YES];
 }
 
-#pragma mark - UITextView Delegate & other UI staff
-
-// scroll view to show textview over keyboard
-- (void)textViewDidBeginEditing:(UITextView *)textView {
-    CGPoint scrollPoint = CGPointMake(0, textView.frame.origin.y);
-    [self.scrollView setContentOffset:scrollPoint animated:YES];
-}
-
-// scroll view down after keyboard was hidden
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    [self.scrollView setContentOffset:CGPointZero animated:YES];
-}
-
-// When user touches outside of textview (on the transparrent button in background) - hide keyboard
-- (IBAction)actionResignFirstResponder:(id)sender {
-    [self.descriptionText resignFirstResponder];
-}
-
 @end

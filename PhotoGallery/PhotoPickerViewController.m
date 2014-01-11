@@ -10,8 +10,8 @@
 #import "PhotoFiltersViewController.h"
 
 @interface PhotoPickerViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-@property (nonatomic, strong) UIImagePickerController *picker;
 @property (nonatomic, strong) UIImage *pickedImage;
+@property (nonatomic) BOOL showPicker;
 @end
 
 @implementation PhotoPickerViewController
@@ -20,28 +20,30 @@
 {
     [super viewDidLoad];
     
-    NSString *images[] = {@"strange.png", @"and-cat.png", @"BiOmega.jpg", @"dark-air.jpg", @"wallmen.jpg"};
-    
-    self.pickedImage = [UIImage imageNamed:images[arc4random() % 5]];
-    
-    [self.imageView setImage:self.pickedImage];
-//    self.picker = [[UIImagePickerController alloc] initWithRootViewController:self];
-//    self.picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-//    self.picker.delegate = self;
+    self.showPicker = YES;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.showPicker)
+        [self showPhotoPicker:self.imageView.frame];
 }
-
 
 // ImagePicker delegate.
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self.imageView setImage:self.pickedImage];
     
-    [[self navigationController] performSegueWithIdentifier:@"showFilters" sender:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"showFilters" sender:self];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    self.showPicker = NO;
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[self navigationController] popToRootViewControllerAnimated:YES];
+    }];
 }
 
 // setup Filters-view before displaying it
@@ -50,6 +52,24 @@
         PhotoFiltersViewController *dvc = [segue destinationViewController];
         [dvc setupBeforeShow:self.pickedImage];
     }
+}
+
+-(void) showPhotoPicker: (CGRect) popoverFrame {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    
+    [picker setSourceType:sourceType];
+    
+    // Set up the other imagePicker properties
+    picker.allowsEditing = NO;
+    picker.delegate = self;
+    
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 @end

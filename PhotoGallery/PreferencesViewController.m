@@ -7,109 +7,94 @@
 //
 
 #import "PreferencesViewController.h"
+#import "StringPreferenceCell.h"
+#import "SwitchPreferenceCell.h"
 
 @interface PreferencesViewController ()
+@property (nonatomic, strong) NSUserDefaults *preferences;
+@property (nonatomic, strong) NSArray *sectionHeaders;
+@property (nonatomic, strong) NSArray *sections;
 
+//@property (nonatomic, weak) UITableViewCell *
 @end
+
+#define PREF_TYPE 0
+#define PREF_UID 1
+#define PREF_TITLE 2
 
 @implementation PreferencesViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-        self.navigationItem.leftBarButtonItem = self.doneItem;
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
+	
+	self.preferences = [NSUserDefaults standardUserDefaults];
+	
+	NSNumber *prefString = [NSNumber numberWithInt:0];
+	NSNumber *prefSwitch = [NSNumber numberWithInt:1];
+	
+	self.sectionHeaders = @[NSLocalizedString(@"User details", nil), NSLocalizedString(@"iCloud settings", nil)];
+	self.sections = @[
+		@[@[prefString, @"userName", @"Name"], @[prefString, @"userEmail", @"E-mail"]],
+		@[@[prefSwitch, @"iCloudSynchronization", @"Synchronize via iCloud"], @[prefSwitch, @"iCloudPromptDownload", @"Promt before download"]]
+	];
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
+	[super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return [self.sections count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	return self.sectionHeaders[section];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return [self.sections[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+	NSArray *section = self.sections[indexPath.section];
+	NSArray *preference = section[indexPath.row];
+	NSString *identifier = preference[PREF_UID];
+	
+	PreferenceCell *cell = nil;
+	if (!cell) {
+		NSNumber *prefType = preference[PREF_TYPE];
+		
+		switch ([prefType integerValue]) {
+				case 0:
+				cell = [StringPreferenceCell newCell];
+				break;
+				
+				case 1:
+				cell = [SwitchPreferenceCell newCell];
+				break;
+				
+			default:
+				NSLog(@"Unknown preference type: %@", prefType);
+				return nil;
+		}
+	}
+	
+	[cell configureCell:identifier withPreferences:self.preferences withTitle:preference[PREF_TITLE]];
+	
+	return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+#pragma mark - Actions
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
+// save preferences before navigating out
 - (IBAction)actionDone:(id)sender {
-    [self.delegate didDoneWithPreferences:self];
+	[self.preferences synchronize];
+	[self.delegate didDoneWithPreferences:self];
 }
 
 @end

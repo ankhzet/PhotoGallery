@@ -18,7 +18,7 @@
     // prepare for loading image with loading indicator
     [self queueImageLoad:photo WithBlock:^UIImage *(id userData) {
         UIImage *image = [photo getImage]; // actual loading
-        usleep(arc4random() % 1000000); // simulate network lag
+																					 //        usleep(arc4random() % 1000000); // simulate network lag
         CGSize size = CGSizeMake(86, 68);
         return [self resizeImage:image imageSize:size];// return nice and handy thumbnail
     }];

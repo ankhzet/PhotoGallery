@@ -17,6 +17,11 @@
 		0A2CEE17187B55B200187CEC /* PGImageFiltersTableDataSourceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2CEE16187B55B200187CEC /* PGImageFiltersTableDataSourceSpec.m */; };
 		0A2CEE1A187B562700187CEC /* ImageFiltersTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2CEE19187B562600187CEC /* ImageFiltersTableDataSource.m */; };
 		0A2CEE1E187B57B500187CEC /* PhotoFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2CEE1D187B57B500187CEC /* PhotoFilterCell.m */; };
+		0A670A6F1882FF6C008701D3 /* StringPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A670A6E1882FF6C008701D3 /* StringPreferenceCell.m */; };
+		0A670A7118830094008701D3 /* StringPreferenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A670A7018830094008701D3 /* StringPreferenceCell.xib */; };
+		0A670A7318832049008701D3 /* SwitchPreferenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A670A7218832049008701D3 /* SwitchPreferenceCell.xib */; };
+		0A670A76188320AB008701D3 /* SwitchPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A670A75188320AB008701D3 /* SwitchPreferenceCell.m */; };
+		0A670A7918832202008701D3 /* PreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A670A7818832202008701D3 /* PreferenceCell.m */; };
 		0AACFEAF1874468B007DB704 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFEAE1874468B007DB704 /* UIKit.framework */; };
 		0AACFEB11874468B007DB704 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFEB01874468B007DB704 /* Foundation.framework */; };
 		0AACFEB31874468B007DB704 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFEB21874468B007DB704 /* CoreGraphics.framework */; };
@@ -84,6 +89,14 @@
 		0A2CEE19187B562600187CEC /* ImageFiltersTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFiltersTableDataSource.m; sourceTree = "<group>"; };
 		0A2CEE1C187B57B500187CEC /* PhotoFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoFilterCell.h; sourceTree = "<group>"; };
 		0A2CEE1D187B57B500187CEC /* PhotoFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoFilterCell.m; sourceTree = "<group>"; };
+		0A670A6D1882FF6B008701D3 /* StringPreferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringPreferenceCell.h; sourceTree = "<group>"; };
+		0A670A6E1882FF6C008701D3 /* StringPreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringPreferenceCell.m; sourceTree = "<group>"; };
+		0A670A7018830094008701D3 /* StringPreferenceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringPreferenceCell.xib; sourceTree = "<group>"; };
+		0A670A7218832049008701D3 /* SwitchPreferenceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchPreferenceCell.xib; sourceTree = "<group>"; };
+		0A670A74188320AB008701D3 /* SwitchPreferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchPreferenceCell.h; sourceTree = "<group>"; };
+		0A670A75188320AB008701D3 /* SwitchPreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchPreferenceCell.m; sourceTree = "<group>"; };
+		0A670A7718832202008701D3 /* PreferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceCell.h; sourceTree = "<group>"; };
+		0A670A7818832202008701D3 /* PreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceCell.m; sourceTree = "<group>"; };
 		0AACFEAA1874468B007DB704 /* PhotoGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AACFEAE1874468B007DB704 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0AACFEB01874468B007DB704 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -193,6 +206,26 @@
 				0A2CEE1D187B57B500187CEC /* PhotoFilterCell.m */,
 			);
 			name = "Image filters";
+			sourceTree = "<group>";
+		};
+		0A670A7A1883239B008701D3 /* String preference */ = {
+			isa = PBXGroup;
+			children = (
+				0A670A6D1882FF6B008701D3 /* StringPreferenceCell.h */,
+				0A670A6E1882FF6C008701D3 /* StringPreferenceCell.m */,
+				0A670A7018830094008701D3 /* StringPreferenceCell.xib */,
+			);
+			name = "String preference";
+			sourceTree = "<group>";
+		};
+		0A670A7B188323A9008701D3 /* Switch preference */ = {
+			isa = PBXGroup;
+			children = (
+				0A670A74188320AB008701D3 /* SwitchPreferenceCell.h */,
+				0A670A75188320AB008701D3 /* SwitchPreferenceCell.m */,
+				0A670A7218832049008701D3 /* SwitchPreferenceCell.xib */,
+			);
+			name = "Switch preference";
 			sourceTree = "<group>";
 		};
 		0AACFE9F1874468B007DB704 = {
@@ -327,6 +360,10 @@
 			children = (
 				0AACFEF91874894D007DB704 /* PreferencesViewController.h */,
 				0AACFEFA1874894D007DB704 /* PreferencesViewController.m */,
+				0A670A7A1883239B008701D3 /* String preference */,
+				0A670A7B188323A9008701D3 /* Switch preference */,
+				0A670A7718832202008701D3 /* PreferenceCell.h */,
+				0A670A7818832202008701D3 /* PreferenceCell.m */,
 			);
 			name = "Preferences view";
 			sourceTree = "<group>";
@@ -484,9 +521,11 @@
 				0AD20F321875932B008E61FF /* wallmen.jpg in Resources */,
 				0AD20F3418759339008E61FF /* BiOmega.jpg in Resources */,
 				0ABAE46D1875D821002ECF1E /* dark-air.jpg in Resources */,
+				0A670A7318832049008701D3 /* SwitchPreferenceCell.xib in Resources */,
 				0ACCCB5518772A14001268AA /* strange.png in Resources */,
 				0ACCCB5B18772ACA001268AA /* and-cat.png in Resources */,
 				0A2CEE14187B53E400187CEC /* kenny.png in Resources */,
+				0A670A7118830094008701D3 /* StringPreferenceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +626,7 @@
 				0AACFEEC18745806007DB704 /* ICloudEnabledStorage.m in Sources */,
 				0AACFEF2187476D2007DB704 /* PhotoPickerViewController.m in Sources */,
 				0AACFEFB1874894D007DB704 /* PreferencesViewController.m in Sources */,
+				0A670A7918832202008701D3 /* PreferenceCell.m in Sources */,
 				0AACFEFF18748AEC007DB704 /* PhotoGalleryViewController.m in Sources */,
 				0AACFF0218748B20007DB704 /* PhotosTableDataSource.m in Sources */,
 				0AACFF051874A220007DB704 /* Photo.m in Sources */,
@@ -598,12 +638,14 @@
 				0A2CEE1A187B562700187CEC /* ImageFiltersTableDataSource.m in Sources */,
 				0A2CEE1E187B57B500187CEC /* PhotoFilterCell.m in Sources */,
 				0ADBEA9A187B74F700A59F79 /* DelayedLoadingCell.m in Sources */,
+				0A670A76188320AB008701D3 /* SwitchPreferenceCell.m in Sources */,
 				0ADBEA9E187B79E100A59F79 /* DelayedLoadingCollectionCell.m in Sources */,
 				0ADBEAA8187D83E900A59F79 /* iCloudDownload.m in Sources */,
 				0ADBEAAC187D8B1D00A59F79 /* iCloudDownloadTestProxy.m in Sources */,
 				0ADBEAAF187D90EA00A59F79 /* DataProxy.m in Sources */,
 				0ADBEAB2187DADA900A59F79 /* PGDataProxyContainer.m in Sources */,
 				0ADBEABE187DC47600A59F79 /* iCloudEnabledPhotoStorage.m in Sources */,
+				0A670A6F1882FF6C008701D3 /* StringPreferenceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

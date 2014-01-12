@@ -78,6 +78,7 @@
 
 @implementation PGCLLocationManager
 
+// setup manager
 -(id)initWithCompletionBlock:(GeoLocationReceiverBlock) block {
     if (!(self = [super init]))
         return nil;
@@ -90,11 +91,13 @@
     return self;
 }
 
+// delegate callback implementation. Method calls supplied on-update block and releases CLLocationManager object, which was instantiated previously.
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     CLLocation *location = [locations lastObject];
     NSLog(@"lat%f - lon%f", location.coordinate.latitude, location.coordinate.longitude);
     PGCLLocationManager *pgManager = (PGCLLocationManager *)manager;
-    @try{
+    
+    @try { // be sure to cleanup even after in-block exceptions - no need to lock system resources
         pgManager->onUpdateBlock(location);
     }
     @finally {

@@ -68,7 +68,7 @@ CGFloat compressionForJPEG = 0.75;
     NSURL *fileURL = [Photo makeAbsolutePathForPhotoFile:[self fileName]];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[fileURL path]])
-        return YES;
+        return YES; // file already doesn't exists
     
     NSError *error = nil;
     if (![[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error]) {
@@ -83,7 +83,7 @@ CGFloat compressionForJPEG = 0.75;
     // first try to delete image file
     // later, [moc saveContext] will trigger file deletion again, but file will be already deleted (no exceptions will be thrown).
     if (![self deleteImage]) {
-        return NO;
+        return NO; // oops, deletion failed oO
     }
     
     // all is OK, delete from database

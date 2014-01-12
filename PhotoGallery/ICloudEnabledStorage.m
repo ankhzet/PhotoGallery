@@ -17,7 +17,7 @@
 
 @implementation ICloudEnabledStorage
 
-// notofocation, that will be send on iCloud data update
+// notification, that will be send on iCloud data update
 NSString *changeNotificationName = @"CoreDataChangeNotification";
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -62,6 +62,7 @@ NSString *iCloudAppID = @"team.author.app";
 
 #pragma mark - CoreData relative methods override
 
+// Metods returns persistent storage coordinator if it was created previously. Otherwise, new coordinator will be created. If device is iCloud-enabled, iCloud-synched store will be added to coordinator. Method returns immediately, store setup made in separate thread, after setup update notification will ne sent to observers (see (un)subscribeForUpdateNotifications method).
 -(NSPersistentStoreCoordinator *) persistentStoreCoordinator {
     if(_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
@@ -87,6 +88,7 @@ NSString *iCloudAppID = @"team.author.app";
             
             NSString *iCloudDataDir = [[self iCloudDataDirURL] path];
             
+            // create iCloud directory for database, if required
             if ([fileManager fileExistsAtPath:iCloudDataDir isDirectory:YES] == NO) {
                 NSError *fileSystemError;
                 [fileManager createDirectoryAtPath:iCloudDataDir
@@ -102,6 +104,7 @@ NSString *iCloudAppID = @"team.author.app";
             
             NSLog(@"iCloudData = %@", iCloudData);
             
+            // options for persistent store
             NSMutableDictionary *options = [NSMutableDictionary dictionary];
             [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
             [options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
@@ -121,6 +124,7 @@ NSString *iCloudAppID = @"team.author.app";
             NSLog(@"Not an iCloud-enabled device - using a local store");
             NSLog(@"localDataStorageFile = %@", self.dataStorageFileName);
 
+            // options for persistent store
             NSMutableDictionary *options = nil;[NSMutableDictionary dictionary];
             [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
             [options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];

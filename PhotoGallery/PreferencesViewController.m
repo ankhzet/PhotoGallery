@@ -34,10 +34,17 @@
 	NSNumber *prefSwitch = [NSNumber numberWithInt:1];
 	
 	self.sectionHeaders = @[NSLocalizedString(@"User details", nil), NSLocalizedString(@"iCloud settings", nil)];
-	self.sections = @[
-		@[@[prefString, @"userName", @"Name"], @[prefString, @"userEmail", @"E-mail"]],
-		@[@[prefSwitch, @"iCloudSynchronization", @"Synchronize via iCloud"], @[prefSwitch, @"iCloudPromptDownload", @"Promt before download"]]
-	];
+	self.sections =
+	@[
+		@[
+			@[prefString, @"userName", NSLocalizedString(@"Name", nil)],
+			@[prefString, @"userEmail", NSLocalizedString(@"E-mail", nil)]
+			],
+		@[
+			@[prefSwitch, @"iCloudSynchronization", NSLocalizedString(@"Synchronize via iCloud", nil)],
+			@[prefSwitch, @"iCloudPromptDownload", NSLocalizedString(@"Prompt before download", nil)]
+			]
+		];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,11 +76,11 @@
 	NSNumber *prefType = preference[PREF_TYPE];
 	
 	switch ([prefType integerValue]) {
-			case 0:
+		case 0:
 			cell = [StringPreferenceCell newCell];
 			break;
 			
-			case 1:
+		case 1:
 			cell = [SwitchPreferenceCell newCell];
 			break;
 			

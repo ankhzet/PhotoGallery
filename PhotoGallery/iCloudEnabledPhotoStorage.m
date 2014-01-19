@@ -25,7 +25,7 @@ NSString *storedFilePattern = @"*.jpg";
 	
 	// override superclass defaults
 	self.dataStorageFileName = @"PhotoGallery.sqlite";
-
+	
 	// is there a better way? sync dir <-> dir, not files <-> files
 	self.localDataDirectory = @"Photos"; // result will be "Application:/Documents/Photos"
 	self.iCloudDataDirectory = @"Photos"; // result will be "iCloud:/Documents/Photos"

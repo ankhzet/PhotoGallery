@@ -17,37 +17,37 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // initializing our data manager
-    [PGDataProxyContainer initInstance:[[iCloudEnabledPhotoStorage alloc] init]];
-    return YES;
+	// initializing our data manager
+	[PGDataProxyContainer initInstance:[[iCloudEnabledPhotoStorage alloc] init]];
+	return YES;
 }
 
 // suspend application
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-
+	
 }
 
 // save all data & preferences
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [PGDataProxyContainer saveContext];
+	[PGDataProxyContainer saveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // undo enter background
+	// undo enter background
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // undo resign active
+	// undo resign active
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Saves changes in the application's managed object context before the application terminates.
-    [PGDataProxyContainer saveContext];
+	// Saves changes in the application's managed object context before the application terminates.
+	[PGDataProxyContainer saveContext];
 }
 
 @end

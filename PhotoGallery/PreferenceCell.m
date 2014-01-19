@@ -18,7 +18,7 @@
 	//  remember for later use
 	self.preferences = preferences;
 	self.preferenceIdentifier = identifier;
-
+	
 	[self.preferenceTitle setText:title];
 }
 

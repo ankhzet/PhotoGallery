@@ -19,58 +19,58 @@
 @implementation PhotosTableDataSource
 
 -(id) init {
-    if (!(self = [super init]))
-        return nil;
-    
-    self.photos = [NSMutableArray array];
-    
-    return self;
+	if (!(self = [super init]))
+		return nil;
+	
+	self.photos = [NSMutableArray array];
+	
+	return self;
 }
 
 // fetching data from managed context
 -(void)aquireData {
-    NSManagedObjectContext *context = [[PGDataProxyContainer getInstance] managedObjectContext];
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo"
-                                              inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp"
-                                                                   ascending:NO];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    NSError *error = nil;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    if (fetchedObjects == nil) {
-        // Handle the error
-    }
-    
-    [self.photos setArray:fetchedObjects];
-
+	NSManagedObjectContext *context = [[PGDataProxyContainer getInstance] managedObjectContext];
+	
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo"
+																						inManagedObjectContext:context];
+	[fetchRequest setEntity:entity];
+	
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp"
+																																 ascending:NO];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	[fetchRequest setSortDescriptors:sortDescriptors];
+	
+	NSError *error = nil;
+	NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+	if (fetchedObjects == nil) {
+		// Handle the error
+	}
+	
+	[self.photos setArray:fetchedObjects];
+	
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+	return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.photos count];
+	return [self.photos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"PhotoGalleryCell";
-    PhotoGalleryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    [cell configureCellForPhoto:[self.photos objectAtIndex:[indexPath row]]];
-   
-    return cell;
+	static NSString *CellIdentifier = @"PhotoGalleryCell";
+	PhotoGalleryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	
+	[cell configureCellForPhoto:[self.photos objectAtIndex:[indexPath row]]];
+	
+	return cell;
 }
 
 /*

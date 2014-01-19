@@ -18,50 +18,50 @@
 @implementation DelayedLoadingCell
 
 -(void) queueImageLoad:(id) userData WithBlock: (PreparePreviewBlock) block {
-    // create new queue if this is first time
-    if (!self.queue) {
-        self.queue = [[NSOperationQueue alloc] init];
-        self.queue.maxConcurrentOperationCount = 1;
-
-        // and configure image layer 
-        CALayer *layer = [self.imageView layer];
-        layer.cornerRadius = 4.0;
-        layer.masksToBounds = YES;
-        layer.borderColor = [UIColor lightGrayColor].CGColor;
-        layer.borderWidth = 1.0;
-    } else
-        // else cancell all operations on queue
-        if (self.queue.operationCount)
-            [self.queue cancelAllOperations];
-    
-    [self setImageIsLoading:YES]; // show loading indicator
-    
-    self.queryID++;
-    NSUInteger queriedID = self.queryID;
-    
-    [self.queue addOperationWithBlock:^{
-        __block UIImage *image = block(userData);
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            if (queriedID != self.queryID)
-                return; // woops... to late...
-            
-            [self.imageView setImage: image]; // setup image
-            [self setImageIsLoading:NO]; // hide loading indicator
-        }];
-        
-    }];
+	// create new queue if this is first time
+	if (!self.queue) {
+		self.queue = [[NSOperationQueue alloc] init];
+		self.queue.maxConcurrentOperationCount = 1;
+		
+		// and configure image layer
+		CALayer *layer = [self.imageView layer];
+		layer.cornerRadius = 4.0;
+		layer.masksToBounds = YES;
+		layer.borderColor = [UIColor lightGrayColor].CGColor;
+		layer.borderWidth = 1.0;
+	} else
+		// else cancell all operations on queue
+		if (self.queue.operationCount)
+			[self.queue cancelAllOperations];
+	
+	[self setImageIsLoading:YES]; // show loading indicator
+	
+	self.queryID++;
+	NSUInteger queriedID = self.queryID;
+	
+	[self.queue addOperationWithBlock:^{
+		__block UIImage *image = block(userData);
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			if (queriedID != self.queryID)
+				return; // woops... to late...
+			
+			[self.imageView setImage: image]; // setup image
+			[self setImageIsLoading:NO]; // hide loading indicator
+		}];
+		
+	}];
 }
 
 // Turn ON/OFF loading indicator.
 -(void)setImageIsLoading:(BOOL)loading {
-    [self.imageView setHidden:loading];
-    [self.loadingIndicator setHidden:!loading];
-    if (loading) {
-        [self.imageView setImage:nil]; // memory saving
-        [self.loadingIndicator startAnimating];
-    }
-    
-    [self setNeedsLayout]; // simple redisplay won't work properly
+	[self.imageView setHidden:loading];
+	[self.loadingIndicator setHidden:!loading];
+	if (loading) {
+		[self.imageView setImage:nil]; // memory saving
+		[self.loadingIndicator startAnimating];
+	}
+	
+	[self setNeedsLayout]; // simple redisplay won't work properly
 }
 
 @end

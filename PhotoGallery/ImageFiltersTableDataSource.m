@@ -19,35 +19,35 @@
 @implementation ImageFiltersTableDataSource
 
 -(id)initWithFiltersManager: (PGImageFilters *) manager {
-    if (!(self = [super init]))
-        return nil;
-    
-    self.filtersManager = manager;
-    
-    return self;
+	if (!(self = [super init]))
+		return nil;
+	
+	self.filtersManager = manager;
+	
+	return self;
 }
 
 -(void)aquireData {
-    [self.filtersManager prepareFilters];
+	[self.filtersManager prepareFilters];
 }
 
 -(void)setupSourceImage:(CIImage *)image {
-    self.sourceImage = image;
+	self.sourceImage = image;
 }
 
 #pragma mark - Data source delegate methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.filtersManager filtersCount];
+	return [self.filtersManager filtersCount];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"PhotoFilterCell";
-    
-    PhotoFilterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    [cell configureCellForFilter:[indexPath row] inFilterManager:self.filtersManager andSourceImage:self.sourceImage];
-    return cell;
+	static NSString *cellIdentifier = @"PhotoFilterCell";
+	
+	PhotoFilterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+	
+	[cell configureCellForFilter:[indexPath row] inFilterManager:self.filtersManager andSourceImage:self.sourceImage];
+	return cell;
 }
 
 @end

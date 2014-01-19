@@ -13,6 +13,7 @@
 
 @interface ICloudEnabledStorage ()
 @property (strong) NSURL *ubiq;
+@property BOOL useiCloud;
 @end;
 
 @implementation ICloudEnabledStorage
@@ -31,6 +32,7 @@ NSString *iCloudAppID = @"team.author.app";
 	if (!(self = [super init]))
 		return self;
 	
+	self.useiCloud = [[NSUserDefaults standardUserDefaults] boolForKey:@"iCloudSynchronization"];
 	self.icEnabled = [self getUbiq] != nil;
 	
 	self.iCloudDataDirectory = nil;
@@ -70,10 +72,6 @@ NSString *iCloudAppID = @"team.author.app";
 
 // Metods returns persistent storage coordinator if it was created previously. Otherwise, new coordinator will be created. If device is iCloud-enabled, iCloud-synched store will be added to coordinator. Method returns immediately, store setup made in separate thread, after setup update notification will ne sent to observers (see (un)subscribeForUpdateNotifications method).
 -(NSPersistentStoreCoordinator *) persistentStoreCoordinator {
-        NSURL *iCloud = [self getUbiq];
-        
-        if (iCloud) {
-            NSLog(@"Not an iCloud-enabled device - using a local store");
 	if(_persistentStoreCoordinator != nil) {
 		return _persistentStoreCoordinator;
 	}
@@ -85,6 +83,9 @@ NSString *iCloudAppID = @"team.author.app";
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		NSFileManager *fileManager = [NSFileManager defaultManager];
 		NSURL *localStore = [self localStorageFileURL]; // absolute url
+		
+		if (self.useiCloud && self.icEnabled) {
+			NSURL *iCloud = [self getUbiq];
 			
 			NSLog(@"iCloud-enabled device");
 			
@@ -128,10 +129,11 @@ NSString *iCloudAppID = @"team.author.app";
 			[psc unlock];
 		}
 		else {
+			NSLog(@"Not an iCloud-enabled device (or disabled in preferences) - using a local store");
 			NSLog(@"localDataStorageFile = %@", self.dataStorageFileName);
 			
 			// options for persistent store
-			NSMutableDictionary *options = nil;[NSMutableDictionary dictionary];
+			NSMutableDictionary *options = [NSMutableDictionary dictionary];
 			[options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
 			[options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
 			
@@ -145,6 +147,9 @@ NSString *iCloudAppID = @"team.author.app";
 			[psc unlock];
 		}
 		
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDefaultsChanged:) name:NSUserDefaultsDidChangeNotification object:nil];
+		
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self notifyChangedWithUserInfo:nil];
 		});
@@ -153,6 +158,19 @@ NSString *iCloudAppID = @"team.author.app";
 	return _persistentStoreCoordinator;
 }
 
+- (void) userDefaultsChanged: (NSNotification *) notification {
+	BOOL oldPref = self.useiCloud;
+	self.useiCloud = [[NSUserDefaults standardUserDefaults] boolForKey:@"iCloudSynchronization"];
+	
+	// try to recreate Core Data managers
+	if (oldPref != self.useiCloud) {
+		[[NSNotificationCenter defaultCenter] removeObserver:self];
+		
+		_managedObjectContext = nil;
+		_persistentStoreCoordinator = nil;
+		[self managedObjectContext];
+	}
+}
 
 - (NSManagedObjectContext *)managedObjectContext {
 	

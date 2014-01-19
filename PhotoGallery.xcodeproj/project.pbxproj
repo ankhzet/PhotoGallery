@@ -40,7 +40,6 @@
 		0AACFEDD1874468B007DB704 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AACFEDB1874468B007DB704 /* InfoPlist.strings */; };
 		0AACFEEC18745806007DB704 /* ICloudEnabledStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEEB18745806007DB704 /* ICloudEnabledStorage.m */; };
 		0AACFEEF18747292007DB704 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AACFEEE18747292007DB704 /* Storyboard.storyboard */; };
-		0AACFEF2187476D2007DB704 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEF1187476D2007DB704 /* PhotoPickerViewController.m */; };
 		0AACFEFB1874894D007DB704 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEFA1874894D007DB704 /* PreferencesViewController.m */; };
 		0AACFEFF18748AEC007DB704 /* PhotoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEFE18748AEC007DB704 /* PhotoGalleryViewController.m */; };
 		0AACFF0218748B20007DB704 /* PhotosTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF0118748B20007DB704 /* PhotosTableDataSource.m */; };
@@ -120,8 +119,6 @@
 		0AACFEEB18745806007DB704 /* ICloudEnabledStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICloudEnabledStorage.m; sourceTree = "<group>"; };
 		0AACFEED18747138007DB704 /* PhotoGallery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PhotoGallery.entitlements; sourceTree = "<group>"; };
 		0AACFEEE18747292007DB704 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		0AACFEF0187476D2007DB704 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
-		0AACFEF1187476D2007DB704 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		0AACFEF91874894D007DB704 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		0AACFEFA1874894D007DB704 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
 		0AACFEFD18748AEC007DB704 /* PhotoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGalleryViewController.h; sourceTree = "<group>"; };
@@ -335,7 +332,6 @@
 				0AACFEEE18747292007DB704 /* Storyboard.storyboard */,
 				0AACFEFC18748AC8007DB704 /* Master view */,
 				0AACFEF818748922007DB704 /* Preferences view */,
-				0AACFEF4187476FE007DB704 /* Photo picker */,
 				0AD20F2C1874BB2F008E61FF /* Photo filters view */,
 				0ABAE46B1875C633002ECF1E /* Detail view */,
 				0ADBEA98187B74F600A59F79 /* DelayedLoadingCell.h */,
@@ -344,15 +340,6 @@
 				0ADBEA9D187B79E100A59F79 /* DelayedLoadingCollectionCell.m */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		0AACFEF4187476FE007DB704 /* Photo picker */ = {
-			isa = PBXGroup;
-			children = (
-				0AACFEF0187476D2007DB704 /* PhotoPickerViewController.h */,
-				0AACFEF1187476D2007DB704 /* PhotoPickerViewController.m */,
-			);
-			name = "Photo picker";
 			sourceTree = "<group>";
 		};
 		0AACFEF818748922007DB704 /* Preferences view */ = {
@@ -624,7 +611,6 @@
 				0AACFEC11874468B007DB704 /* AppDelegate.m in Sources */,
 				0AACFECA1874468B007DB704 /* PhotoGallery.xcdatamodeld in Sources */,
 				0AACFEEC18745806007DB704 /* ICloudEnabledStorage.m in Sources */,
-				0AACFEF2187476D2007DB704 /* PhotoPickerViewController.m in Sources */,
 				0AACFEFB1874894D007DB704 /* PreferencesViewController.m in Sources */,
 				0A670A7918832202008701D3 /* PreferenceCell.m in Sources */,
 				0AACFEFF18748AEC007DB704 /* PhotoGalleryViewController.m in Sources */,

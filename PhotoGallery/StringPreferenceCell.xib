@@ -32,7 +32,6 @@
                     </textField>
                 </subviews>
             </tableViewCellContentView>
-            <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
             <connections>
                 <outlet property="preferenceTitle" destination="H4b-7X-2NB" id="ROy-KN-zDx"/>
                 <outlet property="preferenceValue" destination="rzk-kL-y4E" id="bz1-8k-ba6"/>

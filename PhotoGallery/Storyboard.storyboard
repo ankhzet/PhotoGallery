@@ -72,21 +72,20 @@
                                                     </subviews>
                                                 </view>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1N-c1-0d3" userLabel="Title" propertyAccessControl="none">
-                                                    <rect key="frame" x="104" y="10" width="180" height="23"/>
+                                                    <rect key="frame" x="103" y="10" width="150" height="23"/>
                                                     <accessibility key="accessibilityConfiguration" hint="Title" label=""/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="21g-eL-vrf" userLabel="Description">
-                                                    <rect key="frame" x="104" y="41" width="180" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="This is very, very, VERY long description." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="21g-eL-vrf" userLabel="Description">
+                                                    <rect key="frame" x="103" y="41" width="150" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="21g-eL-vrf" id="IsS-dQ-Gaj"/>
                                             <outlet property="imageView" destination="ayB-Rj-34z" id="szG-Xu-0yg"/>
@@ -98,7 +97,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Gallery" id="V7M-C5-glk">
                         <barButtonItem key="leftBarButtonItem" title="Preferences" id="sds-fa-6UP">
@@ -108,43 +106,18 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="7A2-Dc-Jd5">
                             <connections>
-                                <segue destination="cRh-wT-TXf" kind="push" identifier="showPtotoPicker" id="mJt-Tf-cUW"/>
+                                <action selector="actionTakephoto:" destination="BxP-cc-Q8j" id="ciG-NS-snO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="7Tv-xZ-xTa" id="CXG-hJ-BUa"/>
+                        <segue destination="J54-Rt-Z8r" kind="push" identifier="showFilters" id="DQ3-AP-xuj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4da-bv-btE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="792" y="-64"/>
-        </scene>
-        <!--Photo Picker View Controller-->
-        <scene sceneID="yPt-wN-5yl">
-            <objects>
-                <viewController id="cRh-wT-TXf" customClass="PhotoPickerViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YEl-aW-Nn9"/>
-                        <viewControllerLayoutGuide type="bottom" id="APf-QO-peU"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="BUS-Wr-bcF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JA7-VR-OUx">
-                                <rect key="frame" x="20" y="20" width="280" height="464"/>
-                            </imageView>
-                        </subviews>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <segue destination="J54-Rt-Z8r" kind="push" identifier="showFilters" id="aNf-0H-UzQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x01-JY-0gy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1271" y="-64"/>
         </scene>
         <!--Photo Detail View Controller - Details-->
         <scene sceneID="pxY-qR-v7X">
@@ -154,14 +127,14 @@
                         <viewControllerLayoutGuide type="top" id="8Gj-pj-4VM"/>
                         <viewControllerLayoutGuide type="bottom" id="EAP-QZ-LgN"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="redraw" ambiguous="YES" id="siB-z0-Pj5" customClass="TPKeyboardAvoidingScrollView">
+                    <scrollView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="redraw" ambiguous="YES" indicatorStyle="white" id="siB-z0-Pj5" customClass="TPKeyboardAvoidingScrollView">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YYS-iB-Avz">
-                                <rect key="frame" x="20" y="13" width="280" height="262"/>
+                                <rect key="frame" x="20" y="20" width="280" height="210"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Jf-QS-JfG">
-                                <rect key="frame" x="20" y="283" width="280" height="201"/>
+                                <rect key="frame" x="20" y="267" width="280" height="217"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -169,7 +142,14 @@
                                     <outlet property="delegate" destination="0jZ-Dz-GcE" id="GeA-Nv-2uc"/>
                                 </connections>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a3-mX-dLJ">
+                                <rect key="frame" x="20" y="238" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </scrollView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Details" id="5P1-Gw-LOJ">
@@ -185,6 +165,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="descriptionText" destination="3Jf-QS-JfG" id="pEe-CB-ptp"/>
                         <outlet property="imageView" destination="YYS-iB-Avz" id="10i-jb-LI4"/>
                     </connections>
                 </viewController>
@@ -214,26 +195,28 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoFilterCell" id="zMc-IA-G5J" customClass="PhotoFilterCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoFilterCell" id="SMk-wC-cHN" customClass="PhotoFilterCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hop-mC-qqn" userLabel="imageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lb1-5H-zN8" userLabel="imageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GUq-nU-kug" userLabel="loadingIndicator">
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="mRr-bm-j6j" userLabel="loadingIndicator">
                                                     <rect key="frame" x="15" y="15" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="imageView" destination="hop-mC-qqn" id="v0R-dE-1pL"/>
-                                            <outlet property="loadingIndicator" destination="GUq-nU-kug" id="lLd-ue-d9o"/>
+                                            <outlet property="imageView" destination="lb1-5H-zN8" id="OBt-js-rr8"/>
+                                            <outlet property="loadingIndicator" destination="mRr-bm-j6j" id="sb3-Yk-dso"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -257,12 +240,12 @@
                             <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPb-2c-Lwq">
                                 <rect key="frame" x="20" y="20" width="280" height="364"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SJ4-PX-NRv" userLabel="loadingIndicator">
-                                        <rect key="frame" x="122" y="164" width="37" height="37"/>
-                                    </activityIndicatorView>
                                     <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxs-pn-vwE">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="364"/>
                                     </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SJ4-PX-NRv" userLabel="loadingIndicator">
+                                        <rect key="frame" x="122" y="164" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                             </view>
                         </subviews>
@@ -286,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgd-FC-ef1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765" y="-59"/>
+            <point key="canvasLocation" x="1271" y="-64"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tRh-hA-9y1">

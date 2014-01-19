@@ -66,22 +66,20 @@
 	NSString *identifier = preference[PREF_UID];
 	
 	PreferenceCell *cell = nil;
-	if (!cell) {
-		NSNumber *prefType = preference[PREF_TYPE];
-		
-		switch ([prefType integerValue]) {
-				case 0:
-				cell = [StringPreferenceCell newCell];
-				break;
-				
-				case 1:
-				cell = [SwitchPreferenceCell newCell];
-				break;
-				
-			default:
-				NSLog(@"Unknown preference type: %@", prefType);
-				return nil;
-		}
+	NSNumber *prefType = preference[PREF_TYPE];
+	
+	switch ([prefType integerValue]) {
+			case 0:
+			cell = [StringPreferenceCell newCell];
+			break;
+			
+			case 1:
+			cell = [SwitchPreferenceCell newCell];
+			break;
+			
+		default:
+			NSLog(@"Unknown preference type: %@", prefType);
+			return nil;
 	}
 	
 	[cell configureCell:identifier withPreferences:self.preferences withTitle:preference[PREF_TITLE]];

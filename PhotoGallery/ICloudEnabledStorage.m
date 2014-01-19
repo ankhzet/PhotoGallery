@@ -12,7 +12,7 @@
 #import "iCloudDownload.h"
 
 @interface ICloudEnabledStorage ()
-
+@property (strong) NSURL *ubiq;
 @end;
 
 @implementation ICloudEnabledStorage
@@ -33,18 +33,24 @@ NSString *iCloudAppID = @"team.author.app";
     
     self.icEnabled = [self getUbiq] != nil;
     
-    self.iCloudDataDirectory = @"Documents";
+    self.iCloudDataDirectory = nil;
     
     return self;
 }
 
-// Ubiq URL for iCloud container
+// Reusable ubiq URL for iCloud container
 -(NSURL *) getUbiq {
-    return [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:iCloudAppID];
+	if (!self.ubiq)
+		self.ubiq = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:iCloudAppID];
+	
+	return self.ubiq;
 }
 
 // absolute url for data files (e.g. photos) on iCloud
 -(NSURL *) iCloudDataDirURL {
+	if (!self.iCloudDataDirectory || [self.iCloudDataDirectory isEqualToString:@""])
+		return [self getUbiq]; // use root "/Documents/" directory by default
+	else
     return [[self getUbiq] URLByAppendingPathComponent:self.iCloudDataDirectory isDirectory:true];
 }
 

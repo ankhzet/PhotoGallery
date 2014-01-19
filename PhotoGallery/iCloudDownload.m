@@ -68,7 +68,7 @@
         [self downloadStarted]; // notify delegate
         return [self downloadIteration];
     } else {
-        NSLog(@"iCloud error: %@", [error localizedDescription]);
+        NSLog(@"iCloud file download error: %@", [error localizedDescription]);
     }
     
     return isDownloadStarted;

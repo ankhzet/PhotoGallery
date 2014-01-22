@@ -6,14 +6,37 @@ PODS:
   - Kiwi/SenTestingKit (2.2.3):
     - Kiwi/ARC
     - Kiwi/NonARC
+  - ShareKit (2.5.1):
+    - ShareKit/Core
+    - ShareKit/NoARC
+    - ShareKit/Reachability
+    - ShareKit/Tumblr
+    - ShareKit/Twitter
+  - ShareKit/Core (2.5.1):
+    - ShareKit/NoARC
+    - ShareKit/Reachability
+    - SSKeychain (~> 0.2.1)
+    - SSToolkit (~> 1.0.4)
+  - ShareKit/NoARC (2.5.1)
+  - ShareKit/Reachability (2.5.1)
+  - ShareKit/Tumblr (2.5.1):
+    - ShareKit/Core
+  - ShareKit/Twitter (2.5.1):
+    - ShareKit/Core
+  - SSKeychain (0.2.1)
+  - SSToolkit (1.0.4)
   - TPKeyboardAvoiding (1.2.1)
 
 DEPENDENCIES:
   - Kiwi
+  - ShareKit
   - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
   Kiwi: 2c46ed9da9a589c946cad7fd7cd091e8e2e98bf4
+  ShareKit: deff74a9a3a688358c6dfbb5b1d64dd7af441915
+  SSKeychain: ffa1a79eb716d9ed1ca184fb0cf218087ca28486
+  SSToolkit: 689acaedac79c2079e492e528a55bcb5db9d98c4
   TPKeyboardAvoiding: 0536c563e6c8b8e95a7c4bf87fca9c0991f5e826
 
 COCOAPODS: 0.29.0

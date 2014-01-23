@@ -27,4 +27,9 @@
 	[self.preferences setObject:[self.preferenceValue text] forKey:self.preferenceIdentifier];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)sender {
+	[sender resignFirstResponder];
+	return NO;
+}
+
 @end

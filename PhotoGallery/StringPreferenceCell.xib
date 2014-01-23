@@ -1,36 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StringPreferenceCell"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QN6-mm-Ifv" customClass="StringPreferenceCell">
+        <tableViewCell clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QN6-mm-Ifv" customClass="StringPreferenceCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QN6-mm-Ifv" id="Mag-eb-wUC">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preference" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-7X-2NB" userLabel="preferenceTitle">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="200" text="Preference" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-7X-2NB" userLabel="preferenceTitle">
                         <rect key="frame" x="20" y="10" width="90" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzk-kL-y4E" userLabel="textField">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzk-kL-y4E" userLabel="textField">
                         <rect key="frame" x="138" y="7" width="162" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="162" id="IW6-H3-tfJ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                         <connections>
-                            <action selector="valueChanged:" destination="QN6-mm-Ifv" eventType="editingDidEnd" id="uwW-gK-MX6"/>
+                            <action selector="valueChanged:" destination="QN6-mm-Ifv" eventType="valueChanged" id="xjH-x1-PSt"/>
+                            <outlet property="delegate" destination="QN6-mm-Ifv" id="lhx-qW-0cH"/>
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="H4b-7X-2NB" firstAttribute="leading" secondItem="Mag-eb-wUC" secondAttribute="leading" constant="20" symbolic="YES" id="AMR-nE-F1V"/>
+                    <constraint firstItem="rzk-kL-y4E" firstAttribute="top" secondItem="Mag-eb-wUC" secondAttribute="top" constant="7" id="Ez5-cO-Zxv"/>
+                    <constraint firstItem="rzk-kL-y4E" firstAttribute="leading" secondItem="H4b-7X-2NB" secondAttribute="trailing" priority="500" constant="28" id="IkM-Sx-ykc"/>
+                    <constraint firstAttribute="trailing" secondItem="rzk-kL-y4E" secondAttribute="trailing" constant="20" symbolic="YES" id="ibs-fm-Qyt"/>
+                    <constraint firstItem="H4b-7X-2NB" firstAttribute="baseline" secondItem="rzk-kL-y4E" secondAttribute="baseline" id="nfr-pG-ujp"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="preferenceTitle" destination="H4b-7X-2NB" id="ROy-KN-zDx"/>

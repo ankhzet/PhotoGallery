@@ -12,6 +12,8 @@
 #import "iCloudEnabledPhotoStorage.h"
 
 #import "PGUtils.h"
+#import "PGShareKitConfigurator.h"
+#import <SHKConfiguration.h>
 
 @implementation AppDelegate
 
@@ -19,6 +21,10 @@
 {
 	// initializing our data manager
 	[PGDataProxyContainer initInstance:[[iCloudEnabledPhotoStorage alloc] init]];
+	
+	// initializing socials configurator
+	[SHKConfiguration sharedInstanceWithConfigurator:[[PGShareKitConfigurator alloc]init]];
+	
 	return YES;
 }
 

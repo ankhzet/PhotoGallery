@@ -8,26 +8,6 @@
 
 #import "UIApplication+SSToolkitAdditions.h"
 
-// MSPrivateAdditions category moved upper in code to suppress "undefined selector" warning
-
-@interface UIApplication (MSPrivateAdditions)
-- (void)_setNetworkActivityWithNumber:(NSNumber *)number;
-- (void)_setNetworkActivityIndicatorHidden;
-@end
-
-@implementation UIApplication (MSPrivateAdditions)
-
-- (void)_setNetworkActivityWithNumber:(NSNumber *)number {
-	[self setNetworkActivity:[number boolValue]];
-}
-
-
-- (void)_setNetworkActivityIndicatorHidden {
-	self.networkActivityIndicatorVisible = NO;
-}
-
-@end
-
 @implementation UIApplication (SSToolkitAdditions)
 
 - (BOOL)isPirated {
@@ -79,3 +59,21 @@
 
 @end
 
+
+@interface UIApplication (MSPrivateAdditions)
+- (void)_setNetworkActivityWithNumber:(NSNumber *)number;
+- (void)_setNetworkActivityIndicatorHidden;
+@end
+
+@implementation UIApplication (MSPrivateAdditions)
+
+- (void)_setNetworkActivityWithNumber:(NSNumber *)number {
+	[self setNetworkActivity:[number boolValue]];	
+}
+
+
+- (void)_setNetworkActivityIndicatorHidden {
+	self.networkActivityIndicatorVisible = NO;
+}
+
+@end

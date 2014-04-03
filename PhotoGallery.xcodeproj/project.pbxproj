@@ -39,7 +39,7 @@
 		0AACFED41874468B007DB704 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFEB01874468B007DB704 /* Foundation.framework */; };
 		0AACFED51874468B007DB704 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFEB41874468B007DB704 /* CoreData.framework */; };
 		0AACFEDD1874468B007DB704 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AACFEDB1874468B007DB704 /* InfoPlist.strings */; };
-		0AACFEEC18745806007DB704 /* ICloudEnabledStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEEB18745806007DB704 /* ICloudEnabledStorage.m */; };
+		0AACFEEC18745806007DB704 /* PGSynkEnabledStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEEB18745806007DB704 /* PGSynkEnabledStorage.m */; };
 		0AACFEEF18747292007DB704 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AACFEEE18747292007DB704 /* Storyboard.storyboard */; };
 		0AACFEFB1874894D007DB704 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEFA1874894D007DB704 /* PreferencesViewController.m */; };
 		0AACFEFF18748AEC007DB704 /* PhotoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEFE18748AEC007DB704 /* PhotoGalleryViewController.m */; };
@@ -118,8 +118,8 @@
 		0AACFED11874468B007DB704 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0AACFEDA1874468B007DB704 /* PhotoGalleryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoGalleryTests-Info.plist"; sourceTree = "<group>"; };
 		0AACFEDC1874468B007DB704 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0AACFEEA18745806007DB704 /* ICloudEnabledStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICloudEnabledStorage.h; sourceTree = "<group>"; };
-		0AACFEEB18745806007DB704 /* ICloudEnabledStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICloudEnabledStorage.m; sourceTree = "<group>"; };
+		0AACFEEA18745806007DB704 /* PGSynkEnabledStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSynkEnabledStorage.h; sourceTree = "<group>"; };
+		0AACFEEB18745806007DB704 /* PGSynkEnabledStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSynkEnabledStorage.m; sourceTree = "<group>"; };
 		0AACFEED18747138007DB704 /* PhotoGallery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PhotoGallery.entitlements; sourceTree = "<group>"; };
 		0AACFEEE18747292007DB704 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0AACFEF91874894D007DB704 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
@@ -418,8 +418,8 @@
 			children = (
 				0ADBEAB0187DADA900A59F79 /* PGDataProxyContainer.h */,
 				0ADBEAB1187DADA900A59F79 /* PGDataProxyContainer.m */,
-				0AACFEEA18745806007DB704 /* ICloudEnabledStorage.h */,
-				0AACFEEB18745806007DB704 /* ICloudEnabledStorage.m */,
+				0AACFEEA18745806007DB704 /* PGSynkEnabledStorage.h */,
+				0AACFEEB18745806007DB704 /* PGSynkEnabledStorage.m */,
 				0ADBEABC187DC47600A59F79 /* iCloudEnabledPhotoStorage.h */,
 				0ADBEABD187DC47600A59F79 /* iCloudEnabledPhotoStorage.m */,
 				0ADBEAAD187D90EA00A59F79 /* DataProxy.h */,
@@ -616,7 +616,7 @@
 				0AACFEBD1874468B007DB704 /* main.m in Sources */,
 				0AACFEC11874468B007DB704 /* AppDelegate.m in Sources */,
 				0AACFECA1874468B007DB704 /* PhotoGallery.xcdatamodeld in Sources */,
-				0AACFEEC18745806007DB704 /* ICloudEnabledStorage.m in Sources */,
+				0AACFEEC18745806007DB704 /* PGSynkEnabledStorage.m in Sources */,
 				0AACFEFB1874894D007DB704 /* PreferencesViewController.m in Sources */,
 				0A670A7918832202008701D3 /* PreferenceCell.m in Sources */,
 				0AACFEFF18748AEC007DB704 /* PhotoGalleryViewController.m in Sources */,

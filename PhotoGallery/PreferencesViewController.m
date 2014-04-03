@@ -41,8 +41,8 @@
 			@[prefString, @"userEmail", NSLocalizedString(@"E-mail", nil)]
 			],
 		@[
-			@[prefSwitch, @"iCloudSynchronization", NSLocalizedString(@"Synchronize via iCloud", nil)],
-			@[prefSwitch, @"iCloudPromptDownload", NSLocalizedString(@"Prompt before download", nil)]
+			@[prefSwitch, @"useSynchronization", NSLocalizedString(@"Synchronize via iCloud", nil)],
+			@[prefSwitch, @"synkPromptDownload", NSLocalizedString(@"Prompt before up/down-load", nil)]
 			]
 		];
 }

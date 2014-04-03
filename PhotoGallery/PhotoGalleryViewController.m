@@ -13,7 +13,7 @@
 #import "PhotoFiltersViewController.h"
 
 #import "PGDataProxyContainer.h"
-#import "ICloudEnabledStorage.h"
+#import "PGSynkEnabledStorage.h"
 
 @interface PhotoGalleryViewController () <PreferencessControllerDelegate, PhotoDetailsControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 

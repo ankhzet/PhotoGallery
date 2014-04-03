@@ -32,4 +32,6 @@
 // absolute url of local coredata file
 -(NSURL *) localStorageFileURL;
 
+- (NSPersistentStore *) addPersistentStore:(NSPersistentStoreCoordinator *)coordinator;
+
 @end

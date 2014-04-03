@@ -66,7 +66,7 @@
 	
 	if (isDownloadStarted) {
 		[self downloadStarted]; // notify delegate
-		return [self downloadIteration];
+		return [self downloadIteration:nil];
 	} else {
 		NSLog(@"iCloud file download error: %@", [error localizedDescription]);
 	}
@@ -75,7 +75,7 @@
 }
 
 // download check iteration. if download finished, or file dissappeared from iCloud - notify delegate, else - requeue download check.
--(BOOL) downloadIteration {
+-(BOOL) downloadIteration:(NSTimer *)timer {
 	if ([self isFilePresent]) {
 		if ([self isFileDownloaded]) {
 			[self downloadFinished]; // notify delegate, if any

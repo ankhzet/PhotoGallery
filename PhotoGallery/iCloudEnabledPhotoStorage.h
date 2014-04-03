@@ -8,8 +8,14 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "ICloudEnabledStorage.h"
+#import "PGSynkEnabledStorage.h"
 
-@interface iCloudEnabledPhotoStorage : ICloudEnabledStorage
+@interface iCloudEnabledPhotoStorage : PGSynkEnabledStorage
+
+@property (nonatomic) BOOL icEnabled;
+
+// directory name for relative data (e.g. photos) on iCloud. Relative data synchronization must be implemented in subclasses.
+@property (nonatomic, strong) NSString *iCloudDataDirectory;
+
 
 @end

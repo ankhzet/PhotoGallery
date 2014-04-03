@@ -1,8 +1,8 @@
 //
-//  PGiCloudStorage.h
+//  PGSynkEnabledStorage.h
 //  PhotoGallery
 //
-//  Enables "Local data storage <-> iCloud" synchronization
+//  Enables "Local data storage <-> Remote storage" synchronization
 //
 //  Created by Ankh on 01.01.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.
@@ -11,20 +11,20 @@
 #import <Foundation/Foundation.h>
 #import "DataProxy.h"
 
-@interface ICloudEnabledStorage : DataProxy
+@interface PGSynkEnabledStorage : DataProxy
 
-@property (nonatomic) BOOL icEnabled;
+/*! @brief Is synk enabled by user? */
+@property BOOL performSynk;
 
-// directory name for relative data (e.g. photos) on iCloud. Relative data synchronization must be implemented in subclasses.
-@property (nonatomic, strong) NSString *iCloudDataDirectory;
+/*! @brief Returns YES, if synk enabled in preferences and remote storage is accessible */
+- (BOOL) synkable;
 
-// subscribe for notifications on iCloud Core Data changes import
+// subscribe for notifications on remote Core Data changes import
 -(void) subscribeForUpdateNotifications: (id)observer selector: (SEL)selector;
 -(void) unSubscribeFromUpdateNotifications: (id)observer;
 
-
 // When CoreData has committed changes, this method will be called to perform all required operations on relative data.
 // Currently do nothing. Can be overriden by subclasses.
--(BOOL) performSynkIfRequired;
+-(BOOL) performSynkIfRequiredFromRemote:(BOOL)fromRemote withChanges:(NSDictionary *)changes;
 
 @end

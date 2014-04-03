@@ -80,7 +80,7 @@
 	SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
 	
 	// Display the action sheet
-	[actionSheet showFromToolbar:self.toolbal];
+	[actionSheet showFromToolbar:self.toolbar];
 }
 
 @end

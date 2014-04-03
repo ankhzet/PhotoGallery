@@ -30,7 +30,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                         <connections>
-                            <action selector="valueChanged:" destination="QN6-mm-Ifv" eventType="valueChanged" id="xjH-x1-PSt"/>
+                            <action selector="valueChanged:" destination="QN6-mm-Ifv" eventType="editingDidEnd" id="my0-sC-TV2"/>
                             <outlet property="delegate" destination="QN6-mm-Ifv" id="lhx-qW-0cH"/>
                         </connections>
                     </textField>

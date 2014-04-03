@@ -53,7 +53,11 @@
   
 	[self.filters removeAllObjects];
 	for (NSString *filter in usableFilters) {
-		[self.filters addObject:[CIFilter filterWithName:filter]];
+		CIFilter *filterObject = [CIFilter filterWithName:filter];
+		if (filterObject) {
+			[filterObject setDefaults];
+			[self.filters addObject:filterObject];
+		}
 	}
 }
 

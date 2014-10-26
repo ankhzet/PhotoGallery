@@ -22,7 +22,13 @@
 #define PREF_UID 1
 #define PREF_TITLE 2
 
+__weak static PreferencesViewController *PreferencesViewController_instance;
+
 @implementation PreferencesViewController
+
++ (instancetype) instance {
+	return PreferencesViewController_instance;
+}
 
 - (void)viewDidLoad
 {
@@ -45,6 +51,8 @@
 			@[prefSwitch, @"synkPromptDownload", NSLocalizedString(@"Prompt before up/down-load", nil)]
 			]
 		];
+
+	PreferencesViewController_instance = self;
 }
 
 - (void)didReceiveMemoryWarning

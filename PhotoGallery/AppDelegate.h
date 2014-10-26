@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PGDropBoxSynkedStorage.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, PGDBSynkedApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

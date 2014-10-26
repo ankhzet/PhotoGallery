@@ -1,0 +1,2 @@
+/Users/ankh/Library/Developer/Xcode/DerivedData/PhotoGallery-fsnxuamhuxzjzvgkixqidkqongqj/Build/Products/Debug-iphonesimulator/ShareKit.bundle
+/Volumes/Stuff/AppDev/iOS/PhotoGallery/Pods/SSToolkit/SSToolkitResources.bundle

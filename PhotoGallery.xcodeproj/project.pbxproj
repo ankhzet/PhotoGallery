@@ -17,11 +17,15 @@
 		0A2CEE17187B55B200187CEC /* PGImageFiltersTableDataSourceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2CEE16187B55B200187CEC /* PGImageFiltersTableDataSourceSpec.m */; };
 		0A2CEE1A187B562700187CEC /* ImageFiltersTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2CEE19187B562600187CEC /* ImageFiltersTableDataSource.m */; };
 		0A2CEE1E187B57B500187CEC /* PhotoFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2CEE1D187B57B500187CEC /* PhotoFilterCell.m */; };
+		0A5EEA5918ED7110000B8A6D /* PGDropBoxSynkedStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EEA5818ED7110000B8A6D /* PGDropBoxSynkedStorage.m */; };
 		0A670A6F1882FF6C008701D3 /* StringPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A670A6E1882FF6C008701D3 /* StringPreferenceCell.m */; };
 		0A670A7118830094008701D3 /* StringPreferenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A670A7018830094008701D3 /* StringPreferenceCell.xib */; };
 		0A670A7318832049008701D3 /* SwitchPreferenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A670A7218832049008701D3 /* SwitchPreferenceCell.xib */; };
 		0A670A76188320AB008701D3 /* SwitchPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A670A75188320AB008701D3 /* SwitchPreferenceCell.m */; };
 		0A670A7918832202008701D3 /* PreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A670A7818832202008701D3 /* PreferenceCell.m */; };
+		0A86DBC518EF819800082917 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A86DBC418EF819800082917 /* Dropbox.framework */; };
+		0A86DBC618EF819800082917 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A86DBC418EF819800082917 /* Dropbox.framework */; };
+		0A86DBC818EF837900082917 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A86DBC718EF837900082917 /* libc++.dylib */; };
 		0AA9873B188FF7BB000AC3A6 /* PGShareKitConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA9873A188FF7BB000AC3A6 /* PGShareKitConfigurator.m */; };
 		0AACFEAF1874468B007DB704 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFEAE1874468B007DB704 /* UIKit.framework */; };
 		0AACFEB11874468B007DB704 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFEB01874468B007DB704 /* Foundation.framework */; };
@@ -47,6 +51,8 @@
 		0AACFF051874A220007DB704 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF041874A220007DB704 /* Photo.m */; };
 		0AACFF071874A2A7007DB704 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACFF061874A2A6007DB704 /* CoreLocation.framework */; };
 		0AACFF0B1874A837007DB704 /* PGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF0A1874A837007DB704 /* PGUtils.m */; };
+		0AB232AC18F2B7B3003A2BB6 /* ParcelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB232AB18F2B7B3003A2BB6 /* ParcelKit.framework */; };
+		0AB8A5B118F5B55300B21BA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB8A5B018F5B55300B21BA3 /* Images.xcassets */; };
 		0ABAE4691875C625002ECF1E /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABAE4681875C625002ECF1E /* PhotoDetailViewController.m */; };
 		0ABAE46D1875D821002ECF1E /* dark-air.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0ABAE46C1875D821002ECF1E /* dark-air.jpg */; };
 		0ACCCB5518772A14001268AA /* strange.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACCCB5418772A14001268AA /* strange.png */; };
@@ -57,11 +63,8 @@
 		0AD20F3418759339008E61FF /* BiOmega.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0AD20F3318759339008E61FF /* BiOmega.jpg */; };
 		0ADBEA9A187B74F700A59F79 /* DelayedLoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEA99187B74F700A59F79 /* DelayedLoadingCell.m */; };
 		0ADBEA9E187B79E100A59F79 /* DelayedLoadingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEA9D187B79E100A59F79 /* DelayedLoadingCollectionCell.m */; };
-		0ADBEAA8187D83E900A59F79 /* iCloudDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEAA7187D83E900A59F79 /* iCloudDownload.m */; };
-		0ADBEAAC187D8B1D00A59F79 /* iCloudDownloadTestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEAAB187D8B1D00A59F79 /* iCloudDownloadTestProxy.m */; };
 		0ADBEAAF187D90EA00A59F79 /* DataProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEAAE187D90EA00A59F79 /* DataProxy.m */; };
 		0ADBEAB2187DADA900A59F79 /* PGDataProxyContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEAB1187DADA900A59F79 /* PGDataProxyContainer.m */; };
-		0ADBEABE187DC47600A59F79 /* iCloudEnabledPhotoStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEABD187DC47600A59F79 /* iCloudEnabledPhotoStorage.m */; };
 		578728E751FA4247B03BCFCD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CC1BDD030B490EBB4559F4 /* libPods.a */; };
 		7B18190F017C4468922DA6B9 /* libPods-PhotoGalleryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B50B002091F54F48AC44C5C1 /* libPods-PhotoGalleryTests.a */; };
 /* End PBXBuildFile section */
@@ -89,6 +92,8 @@
 		0A2CEE19187B562600187CEC /* ImageFiltersTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFiltersTableDataSource.m; sourceTree = "<group>"; };
 		0A2CEE1C187B57B500187CEC /* PhotoFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoFilterCell.h; sourceTree = "<group>"; };
 		0A2CEE1D187B57B500187CEC /* PhotoFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoFilterCell.m; sourceTree = "<group>"; };
+		0A5EEA5718ED7110000B8A6D /* PGDropBoxSynkedStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDropBoxSynkedStorage.h; sourceTree = "<group>"; };
+		0A5EEA5818ED7110000B8A6D /* PGDropBoxSynkedStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDropBoxSynkedStorage.m; sourceTree = "<group>"; };
 		0A670A6D1882FF6B008701D3 /* StringPreferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringPreferenceCell.h; sourceTree = "<group>"; };
 		0A670A6E1882FF6C008701D3 /* StringPreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringPreferenceCell.m; sourceTree = "<group>"; };
 		0A670A7018830094008701D3 /* StringPreferenceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringPreferenceCell.xib; sourceTree = "<group>"; };
@@ -97,6 +102,8 @@
 		0A670A75188320AB008701D3 /* SwitchPreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchPreferenceCell.m; sourceTree = "<group>"; };
 		0A670A7718832202008701D3 /* PreferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceCell.h; sourceTree = "<group>"; };
 		0A670A7818832202008701D3 /* PreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceCell.m; sourceTree = "<group>"; };
+		0A86DBC418EF819800082917 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
+		0A86DBC718EF837900082917 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		0AA98739188FF7BB000AC3A6 /* PGShareKitConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGShareKitConfigurator.h; sourceTree = "<group>"; };
 		0AA9873A188FF7BB000AC3A6 /* PGShareKitConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGShareKitConfigurator.m; sourceTree = "<group>"; };
 		0AACFEAA1874468B007DB704 /* PhotoGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +140,8 @@
 		0AACFF061874A2A6007DB704 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0AACFF091874A837007DB704 /* PGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGUtils.h; sourceTree = "<group>"; };
 		0AACFF0A1874A837007DB704 /* PGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGUtils.m; sourceTree = "<group>"; };
+		0AB232AB18F2B7B3003A2BB6 /* ParcelKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParcelKit.framework; sourceTree = "<group>"; };
+		0AB8A5B018F5B55300B21BA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0ABAE4671875C625002ECF1E /* PhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
 		0ABAE4681875C625002ECF1E /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
 		0ABAE46C1875D821002ECF1E /* dark-air.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dark-air.jpg"; sourceTree = "<group>"; };
@@ -148,16 +157,10 @@
 		0ADBEA99187B74F700A59F79 /* DelayedLoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayedLoadingCell.m; sourceTree = "<group>"; };
 		0ADBEA9C187B79E100A59F79 /* DelayedLoadingCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayedLoadingCollectionCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0ADBEA9D187B79E100A59F79 /* DelayedLoadingCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayedLoadingCollectionCell.m; sourceTree = "<group>"; };
-		0ADBEAA6187D83E900A59F79 /* iCloudDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudDownload.h; sourceTree = "<group>"; };
-		0ADBEAA7187D83E900A59F79 /* iCloudDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudDownload.m; sourceTree = "<group>"; };
-		0ADBEAAA187D8B1D00A59F79 /* iCloudDownloadTestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudDownloadTestProxy.h; sourceTree = "<group>"; };
-		0ADBEAAB187D8B1D00A59F79 /* iCloudDownloadTestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudDownloadTestProxy.m; sourceTree = "<group>"; };
 		0ADBEAAD187D90EA00A59F79 /* DataProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProxy.h; sourceTree = "<group>"; };
 		0ADBEAAE187D90EA00A59F79 /* DataProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProxy.m; sourceTree = "<group>"; };
 		0ADBEAB0187DADA900A59F79 /* PGDataProxyContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDataProxyContainer.h; sourceTree = "<group>"; };
 		0ADBEAB1187DADA900A59F79 /* PGDataProxyContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDataProxyContainer.m; sourceTree = "<group>"; };
-		0ADBEABC187DC47600A59F79 /* iCloudEnabledPhotoStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudEnabledPhotoStorage.h; sourceTree = "<group>"; };
-		0ADBEABD187DC47600A59F79 /* iCloudEnabledPhotoStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudEnabledPhotoStorage.m; sourceTree = "<group>"; };
 		5C94B39B0E4947B48FEEEA2F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		94CC1BDD030B490EBB4559F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50B002091F54F48AC44C5C1 /* libPods-PhotoGalleryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoGalleryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,12 +172,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A86DBC818EF837900082917 /* libc++.dylib in Frameworks */,
 				0A2CEE0A187B3F5300187CEC /* CoreImage.framework in Frameworks */,
+				0AB232AC18F2B7B3003A2BB6 /* ParcelKit.framework in Frameworks */,
 				0AACFF071874A2A7007DB704 /* CoreLocation.framework in Frameworks */,
 				0AACFEAF1874468B007DB704 /* UIKit.framework in Frameworks */,
 				0AACFEB11874468B007DB704 /* Foundation.framework in Frameworks */,
 				0AACFEB31874468B007DB704 /* CoreGraphics.framework in Frameworks */,
 				0AACFEB51874468B007DB704 /* CoreData.framework in Frameworks */,
+				0A86DBC518EF819800082917 /* Dropbox.framework in Frameworks */,
 				578728E751FA4247B03BCFCD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +192,7 @@
 				0A2CEE12187B508C00187CEC /* CoreImage.framework in Frameworks */,
 				0AACFED21874468B007DB704 /* SenTestingKit.framework in Frameworks */,
 				0AACFED31874468B007DB704 /* UIKit.framework in Frameworks */,
+				0A86DBC618EF819800082917 /* Dropbox.framework in Frameworks */,
 				0AACFED41874468B007DB704 /* Foundation.framework in Frameworks */,
 				0AACFED51874468B007DB704 /* CoreData.framework in Frameworks */,
 				7B18190F017C4468922DA6B9 /* libPods-PhotoGalleryTests.a in Frameworks */,
@@ -252,6 +259,9 @@
 		0AACFEAD1874468B007DB704 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AB232AB18F2B7B3003A2BB6 /* ParcelKit.framework */,
+				0A86DBC718EF837900082917 /* libc++.dylib */,
+				0A86DBC418EF819800082917 /* Dropbox.framework */,
 				0A2CEE09187B3F5300187CEC /* CoreImage.framework */,
 				0AACFEAE1874468B007DB704 /* UIKit.framework */,
 				0AACFEB01874468B007DB704 /* Foundation.framework */,
@@ -273,6 +283,7 @@
 				0AACFF081874A828007DB704 /* Utils */,
 				0AACFEF3187476F0007DB704 /* Views */,
 				0AACFEE9187457CA007DB704 /* Data storage */,
+				0AB8A5B018F5B55300B21BA3 /* Images.xcassets */,
 				0AACFEB71874468B007DB704 /* Supporting Files */,
 			);
 			path = PhotoGallery;
@@ -323,8 +334,6 @@
 				0AACFF041874A220007DB704 /* Photo.m */,
 				0AACFEED18747138007DB704 /* PhotoGallery.entitlements */,
 				0ADBEABA187DB5ED00A59F79 /* Data proxy wrappers & imp */,
-				0ADBEAAA187D8B1D00A59F79 /* iCloudDownloadTestProxy.h */,
-				0ADBEAAB187D8B1D00A59F79 /* iCloudDownloadTestProxy.m */,
 			);
 			name = "Data storage";
 			sourceTree = "<group>";
@@ -407,8 +416,8 @@
 				0ACCCB5418772A14001268AA /* strange.png */,
 				0ACCCB5A18772ACA001268AA /* and-cat.png */,
 				0AD20F3318759339008E61FF /* BiOmega.jpg */,
-				0ABAE46C1875D821002ECF1E /* dark-air.jpg */,
 				0AD20F311875932B008E61FF /* wallmen.jpg */,
+				0ABAE46C1875D821002ECF1E /* dark-air.jpg */,
 			);
 			name = photos;
 			sourceTree = "<group>";
@@ -420,12 +429,10 @@
 				0ADBEAB1187DADA900A59F79 /* PGDataProxyContainer.m */,
 				0AACFEEA18745806007DB704 /* PGSynkEnabledStorage.h */,
 				0AACFEEB18745806007DB704 /* PGSynkEnabledStorage.m */,
-				0ADBEABC187DC47600A59F79 /* iCloudEnabledPhotoStorage.h */,
-				0ADBEABD187DC47600A59F79 /* iCloudEnabledPhotoStorage.m */,
+				0A5EEA5718ED7110000B8A6D /* PGDropBoxSynkedStorage.h */,
+				0A5EEA5818ED7110000B8A6D /* PGDropBoxSynkedStorage.m */,
 				0ADBEAAD187D90EA00A59F79 /* DataProxy.h */,
 				0ADBEAAE187D90EA00A59F79 /* DataProxy.m */,
-				0ADBEAA6187D83E900A59F79 /* iCloudDownload.h */,
-				0ADBEAA7187D83E900A59F79 /* iCloudDownload.m */,
 			);
 			name = "Data proxy wrappers & imp";
 			sourceTree = "<group>";
@@ -515,6 +522,7 @@
 				0AD20F3418759339008E61FF /* BiOmega.jpg in Resources */,
 				0ABAE46D1875D821002ECF1E /* dark-air.jpg in Resources */,
 				0A670A7318832049008701D3 /* SwitchPreferenceCell.xib in Resources */,
+				0AB8A5B118F5B55300B21BA3 /* Images.xcassets in Resources */,
 				0ACCCB5518772A14001268AA /* strange.png in Resources */,
 				0ACCCB5B18772ACA001268AA /* and-cat.png in Resources */,
 				0A2CEE14187B53E400187CEC /* kenny.png in Resources */,
@@ -632,12 +640,10 @@
 				0ADBEA9A187B74F700A59F79 /* DelayedLoadingCell.m in Sources */,
 				0A670A76188320AB008701D3 /* SwitchPreferenceCell.m in Sources */,
 				0ADBEA9E187B79E100A59F79 /* DelayedLoadingCollectionCell.m in Sources */,
-				0ADBEAA8187D83E900A59F79 /* iCloudDownload.m in Sources */,
-				0ADBEAAC187D8B1D00A59F79 /* iCloudDownloadTestProxy.m in Sources */,
+				0A5EEA5918ED7110000B8A6D /* PGDropBoxSynkedStorage.m in Sources */,
 				0ADBEAAF187D90EA00A59F79 /* DataProxy.m in Sources */,
 				0AA9873B188FF7BB000AC3A6 /* PGShareKitConfigurator.m in Sources */,
 				0ADBEAB2187DADA900A59F79 /* PGDataProxyContainer.m in Sources */,
-				0ADBEABE187DC47600A59F79 /* iCloudEnabledPhotoStorage.m in Sources */,
 				0A670A6F1882FF6C008701D3 /* StringPreferenceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -737,9 +743,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C94B39B0E4947B48FEEEA2F /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ankh/Documents/AppDev/iOS/PhotoGallery,
+					"/Users/ankh/Documents/AppDev/ParcelKit-master/Vendor/Dropbox",
+					/Volumes/Stuff/AppDev/iOS/PhotoGallery,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoGallery/PhotoGallery-Prefix.pch";
 				INFOPLIST_FILE = "PhotoGallery/PhotoGallery-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ankh/Documents/AppDev/iOS/PhotoGallery,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -749,9 +767,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C94B39B0E4947B48FEEEA2F /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ankh/Documents/AppDev/iOS/PhotoGallery,
+					"/Users/ankh/Documents/AppDev/ParcelKit-master/Vendor/Dropbox",
+					/Volumes/Stuff/AppDev/iOS/PhotoGallery,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoGallery/PhotoGallery-Prefix.pch";
 				INFOPLIST_FILE = "PhotoGallery/PhotoGallery-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ankh/Documents/AppDev/iOS/PhotoGallery,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -763,12 +793,17 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PhotoGallery.app/PhotoGallery";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					/Users/ankh/Documents/AppDev/iOS/PhotoGallery,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoGallery/PhotoGallery-Prefix.pch";
 				INFOPLIST_FILE = "PhotoGalleryTests/PhotoGalleryTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ankh/Documents/AppDev/iOS/PhotoGallery,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -781,12 +816,17 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PhotoGallery.app/PhotoGallery";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					/Users/ankh/Documents/AppDev/iOS/PhotoGallery,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoGallery/PhotoGallery-Prefix.pch";
 				INFOPLIST_FILE = "PhotoGalleryTests/PhotoGalleryTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ankh/Documents/AppDev/iOS/PhotoGallery,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

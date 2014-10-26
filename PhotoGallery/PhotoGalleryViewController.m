@@ -36,9 +36,9 @@
 	// when using ICloudEnabledStorage, must manualy subscribe for data updates notification,
 	// because ICloudEnabledStorage initializes storage in separate thread, and after first
 	// aquire of persistent storage data isn't actually loaded yet
-	id proxy = [[PGDataProxyContainer getInstance] dataProxy];
-	[proxy subscribeForUpdateNotifications:self selector:@selector(onCoreDataUpdate:)];
-	
+//	id proxy = [[PGDataProxyContainer getInstance] dataProxy];
+//	[proxy subscribeForUpdateNotifications:self selector:@selector(onCoreDataUpdate:)];
+
 	// notification may be sended already
 	[self reloadTable];
 }
@@ -46,9 +46,9 @@
 -(void)viewDidUnload {
 	[super viewDidUnload];
 	
-	// don't forget to unsubscribe and remove circular referencing...
-	id proxy = [[PGDataProxyContainer getInstance] dataProxy];
-	[proxy unSubscribeFromUpdateNotifications:self];
+//	// don't forget to unsubscribe and remove circular referencing...
+//	id proxy = [[PGDataProxyContainer getInstance] dataProxy];
+//	[proxy unSubscribeFromUpdateNotifications:self];
 }
 
 - (void)didReceiveMemoryWarning

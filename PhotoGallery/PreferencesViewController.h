@@ -21,4 +21,6 @@
 
 - (IBAction)actionDone:(id)sender;
 
++ (instancetype) instance;
+
 @end

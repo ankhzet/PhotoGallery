@@ -97,7 +97,6 @@
 }
 
 - (NSPersistentStore *) addPersistentStore:(NSPersistentStoreCoordinator *)coordinator {
-	NSLog(@"Not a synk-enabled device (or disabled in preferences) - using a local store");
 	NSLog(@"localDataStorageFile = %@", self.dataStorageFileName);
 	NSURL *localStore = [self localStorageFileURL]; // absolute url
 

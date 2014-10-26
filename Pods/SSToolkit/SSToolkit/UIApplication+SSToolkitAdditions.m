@@ -8,6 +8,11 @@
 
 #import "UIApplication+SSToolkitAdditions.h"
 
+@interface UIApplication (MSPrivateAdditions)
+- (void)_setNetworkActivityWithNumber:(NSNumber *)number;
+- (void)_setNetworkActivityIndicatorHidden;
+@end
+
 @implementation UIApplication (SSToolkitAdditions)
 
 - (BOOL)isPirated {
@@ -59,11 +64,6 @@
 
 @end
 
-
-@interface UIApplication (MSPrivateAdditions)
-- (void)_setNetworkActivityWithNumber:(NSNumber *)number;
-- (void)_setNetworkActivityIndicatorHidden;
-@end
 
 @implementation UIApplication (MSPrivateAdditions)
 

@@ -16,6 +16,7 @@
 @end
 
 @implementation PGSynkEnabledStorage
+@synthesize performSynk = _performSynk;
 
 // notification, that will be send on iCloud data update
 NSString *changeNotificationName = @"CoreDataChangeNotification";
@@ -29,9 +30,21 @@ NSString *changeNotificationName = @"CoreDataChangeNotification";
 	if (!(self = [super init]))
 		return self;
 	
-	self.performSynk = [[NSUserDefaults standardUserDefaults] boolForKey:@"useSynchronization"];
+	_performSynk = [[NSUserDefaults standardUserDefaults] boolForKey:@"useSynchronization"];
 	
 	return self;
+}
+
+- (void) setPerformSynk:(BOOL)performSynk {
+	if (_performSynk == performSynk) {
+		return;
+	}
+	_performSynk = performSynk;
+	[self synkToggled];
+}
+
+- (BOOL) performSynk {
+	return _performSynk;
 }
 
 /*! @brief Uploading and downloading linked files on CoreData updates.
@@ -41,6 +54,7 @@ NSString *changeNotificationName = @"CoreDataChangeNotification";
  @return Yes, if processed succesfully. No, if synkchronization unavailable.
  */
 -(BOOL) performSynkIfRequiredFromRemote:(BOOL)fromRemote withChanges:(NSDictionary *)changes {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
 	if (![self synkable])
 		return NO;
 
@@ -54,19 +68,81 @@ NSString *changeNotificationName = @"CoreDataChangeNotification";
 	iRemote = remoteChanges[NSInsertedObjectsKey];
 	iLocal = changes[NSInsertedObjectsKey];
 	for (NSManagedObject *local in iLocal) {
+		NSString *fileToSynk = [self filterDiff:local];
+		if (!fileToSynk)
+			continue;
+
     if ([iRemote member:local]) {
 			// arrived from remote storage
 			//TODO: download from remote end, if needed
+			[self doDownload:fileToSynk];
 		} else {
 			//TODO: upload to remote end, if needed
+			[self doUpload:fileToSynk];
 		}
 	}
 	return YES;
 }
 
-- (BOOL) synkable {
-	//	return self.performSynk;
+/*!
+ @brief Force file download if needed and possible.
+ */
+-(BOOL) doDownload:(NSString *)fileName {
+	PGFileSynkState state = [self fileState:fileName];
+
+	if (!(state & PGFileSynkStateIsRemote))
+		return NO;
+
+	if (state & PGFileSynkStateDownloading)
+		return YES;
+
+	return [self fileDownload:fileName] & PGFileSynkStateDownloading;
+}
+
+/*!
+ @brief Force file upload if needed and possible.
+ */
+-(BOOL) doUpload:(NSString *)fileName {
+	PGFileSynkState state = [self fileState:fileName];
+
+	if (!(state & PGFileSynkStateIsLocal))
+		return NO;
+
+	if (state & PGFileSynkStateUploading)
+		return YES;
+
+	return [self fileUpload:fileName] & PGFileSynkStateUploading;
+}
+
+#pragma mark Overridable methods
+
+-(PGFileSynkState) fileState:(NSString *)fileName {
+	return PGFileSynkStateNone;
+}
+
+-(PGFileSynkState) fileDownload:(NSString *)fileName {
+	return PGFileSynkStateNone;
+}
+
+-(PGFileSynkState) fileUpload:(NSString *)fileName {
+	return PGFileSynkStateNone;
+}
+
+-(NSString *) filterDiff:(NSManagedObject *)entity {
 	return NO;
+}
+
+- (BOOL) synkable {
+	return NO;
+}
+
+- (void) synkToggled {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+
+	// try to recreate Core Data managers
+	_managedObjectContext = nil;
+	_persistentStoreCoordinator = nil;
+	[self managedObjectContext];
 }
 
 #pragma mark - CoreData relative methods override
@@ -87,6 +163,7 @@ NSString *changeNotificationName = @"CoreDataChangeNotification";
 		if ([self synkable]) {
 			[self addRemoteStore:coordinator];
 		} else {
+			NSLog(@"Not a synk-enabled device (or disabled in preferences) - using a local store");
 			[self addPersistentStore:coordinator];
 		}
 		
@@ -100,22 +177,10 @@ NSString *changeNotificationName = @"CoreDataChangeNotification";
 	return _persistentStoreCoordinator;
 }
 
+/*!
+ */
 - (NSPersistentStore *) addRemoteStore:(NSPersistentStoreCoordinator *)coordinator {
-	return nil;
-}
-
-- (void) userDefaultsChanged: (NSNotification *) notification {
-	BOOL oldPref = self.performSynk;
-	self.performSynk = [[NSUserDefaults standardUserDefaults] boolForKey:@"useSynchronization"];
-	
-	// try to recreate Core Data managers
-	if (oldPref != self.performSynk) {
-		[[NSNotificationCenter defaultCenter] removeObserver:self];
-		
-		_managedObjectContext = nil;
-		_persistentStoreCoordinator = nil;
-		[self managedObjectContext];
-	}
+	return [self addPersistentStore:coordinator];
 }
 
 - (NSManagedObjectContext *)managedObjectContext {
@@ -129,11 +194,12 @@ NSString *changeNotificationName = @"CoreDataChangeNotification";
 	if (coordinator != nil) {
 		NSManagedObjectContext *moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
 		
-		[moc performBlockAndWait:^{
-			[moc setPersistentStoreCoordinator: coordinator];
-			//TODO: modify to accept NSPersistentStoreDidImportContentChangesNotification-like notifications
-			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remoteChangesImport:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:coordinator];
-		}];
+		[moc setPersistentStoreCoordinator: coordinator];
+//		[moc performBlockAndWait:^{
+//			[moc setPersistentStoreCoordinator: coordinator];
+//			//TODO: modify to accept NSPersistentStoreDidImportContentChangesNotification-like notifications
+//			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remoteChangesImport:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:coordinator];
+//		}];
 		_managedObjectContext = moc;
 	}
 
@@ -185,6 +251,11 @@ NSString *changeNotificationName = @"CoreDataChangeNotification";
 	[[NSNotificationCenter defaultCenter] removeObserver:observer name:changeNotificationName object:self];
 	
 }
+
+- (void) userDefaultsChanged: (NSNotification *) notification {
+	self.performSynk = [[NSUserDefaults standardUserDefaults] boolForKey:@"useSynchronization"];
+}
+
 
 @end
 

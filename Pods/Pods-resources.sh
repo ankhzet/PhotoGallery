@@ -3,6 +3,7 @@ set -e
 
 RESOURCES_TO_COPY=${PODS_ROOT}/resources-to-copy-${TARGETNAME}.txt
 > "$RESOURCES_TO_COPY"
+chmod 0777 "$RESOURCES_TO_COPY"
 
 install_resource()
 {
@@ -47,7 +48,6 @@ rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOUR
 if [[ "${ACTION}" == "install" ]]; then
   rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${INSTALL_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 fi
-rm -f "$RESOURCES_TO_COPY"
 
 if [[ -n "${WRAPPER_EXTENSION}" ]] && [ `xcrun --find actool` ] && [ `find . -name '*.xcassets' | wc -l` -ne 0 ]
 then
